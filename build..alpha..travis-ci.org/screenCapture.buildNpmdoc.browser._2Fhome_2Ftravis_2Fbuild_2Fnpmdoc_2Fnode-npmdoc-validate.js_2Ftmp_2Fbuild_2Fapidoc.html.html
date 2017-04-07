@@ -1,0 +1,3020 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://validatejs.org">validate.js (v0.11.1)</a>
+</h1>
+<h4>Declarative validations for JavaScript</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.validate.js">module validate.js</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.Promise">
+            function <span class="apidocSignatureSpan">validate.js.</span>Promise
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.async">
+            function <span class="apidocSignatureSpan">validate.js.</span>async
+            <span class="apidocSignatureSpan">(attributes, constraints, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.capitalize">
+            function <span class="apidocSignatureSpan">validate.js.</span>capitalize
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.cleanAttributes">
+            function <span class="apidocSignatureSpan">validate.js.</span>cleanAttributes
+            <span class="apidocSignatureSpan">(attributes, whitelist)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.collectFormValues">
+            function <span class="apidocSignatureSpan">validate.js.</span>collectFormValues
+            <span class="apidocSignatureSpan">(form, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.contains">
+            function <span class="apidocSignatureSpan">validate.js.</span>contains
+            <span class="apidocSignatureSpan">(obj, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.convertErrorMessages">
+            function <span class="apidocSignatureSpan">validate.js.</span>convertErrorMessages
+            <span class="apidocSignatureSpan">(errors, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.error">
+            function <span class="apidocSignatureSpan">validate.js.</span>error
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.expandMultipleErrors">
+            function <span class="apidocSignatureSpan">validate.js.</span>expandMultipleErrors
+            <span class="apidocSignatureSpan">(errors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.exposeModule">
+            function <span class="apidocSignatureSpan">validate.js.</span>exposeModule
+            <span class="apidocSignatureSpan">(validate, root, exports, module, define)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.extend">
+            function <span class="apidocSignatureSpan">validate.js.</span>extend
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.flattenErrorsToArray">
+            function <span class="apidocSignatureSpan">validate.js.</span>flattenErrorsToArray
+            <span class="apidocSignatureSpan">(errors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.forEachKeyInKeypath">
+            function <span class="apidocSignatureSpan">validate.js.</span>forEachKeyInKeypath
+            <span class="apidocSignatureSpan">(object, keypath, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.format">
+            function <span class="apidocSignatureSpan">validate.js.</span>format
+            <span class="apidocSignatureSpan">(str, vals)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.getDeepObjectValue">
+            function <span class="apidocSignatureSpan">validate.js.</span>getDeepObjectValue
+            <span class="apidocSignatureSpan">(obj, keypath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.groupErrorsByAttribute">
+            function <span class="apidocSignatureSpan">validate.js.</span>groupErrorsByAttribute
+            <span class="apidocSignatureSpan">(errors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isArray">
+            function <span class="apidocSignatureSpan">validate.js.</span>isArray
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isBoolean">
+            function <span class="apidocSignatureSpan">validate.js.</span>isBoolean
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isDate">
+            function <span class="apidocSignatureSpan">validate.js.</span>isDate
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isDefined">
+            function <span class="apidocSignatureSpan">validate.js.</span>isDefined
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isDomElement">
+            function <span class="apidocSignatureSpan">validate.js.</span>isDomElement
+            <span class="apidocSignatureSpan">(o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isEmpty">
+            function <span class="apidocSignatureSpan">validate.js.</span>isEmpty
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isFunction">
+            function <span class="apidocSignatureSpan">validate.js.</span>isFunction
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isHash">
+            function <span class="apidocSignatureSpan">validate.js.</span>isHash
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isInteger">
+            function <span class="apidocSignatureSpan">validate.js.</span>isInteger
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isJqueryElement">
+            function <span class="apidocSignatureSpan">validate.js.</span>isJqueryElement
+            <span class="apidocSignatureSpan">(o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isNumber">
+            function <span class="apidocSignatureSpan">validate.js.</span>isNumber
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isObject">
+            function <span class="apidocSignatureSpan">validate.js.</span>isObject
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isPromise">
+            function <span class="apidocSignatureSpan">validate.js.</span>isPromise
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.isString">
+            function <span class="apidocSignatureSpan">validate.js.</span>isString
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.prettify">
+            function <span class="apidocSignatureSpan">validate.js.</span>prettify
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.processValidationResults">
+            function <span class="apidocSignatureSpan">validate.js.</span>processValidationResults
+            <span class="apidocSignatureSpan">(errors, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.pruneEmptyErrors">
+            function <span class="apidocSignatureSpan">validate.js.</span>pruneEmptyErrors
+            <span class="apidocSignatureSpan">(errors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.result">
+            function <span class="apidocSignatureSpan">validate.js.</span>result
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.runValidations">
+            function <span class="apidocSignatureSpan">validate.js.</span>runValidations
+            <span class="apidocSignatureSpan">(attributes, constraints, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.sanitizeFormValue">
+            function <span class="apidocSignatureSpan">validate.js.</span>sanitizeFormValue
+            <span class="apidocSignatureSpan">(value, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.single">
+            function <span class="apidocSignatureSpan">validate.js.</span>single
+            <span class="apidocSignatureSpan">(value, constraints, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.stringifyValue">
+            function <span class="apidocSignatureSpan">validate.js.</span>stringifyValue
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.unique">
+            function <span class="apidocSignatureSpan">validate.js.</span>unique
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validate">
+            function <span class="apidocSignatureSpan">validate.js.</span>validate
+            <span class="apidocSignatureSpan">(attributes, constraints, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.waitForResults">
+            function <span class="apidocSignatureSpan">validate.js.</span>waitForResults
+            <span class="apidocSignatureSpan">(results)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.warn">
+            function <span class="apidocSignatureSpan">validate.js.</span>warn
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">validate.js.</span>EMPTY_STRING_REGEXP</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">validate.js.</span>formatters</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">validate.js.</span>js.formatters</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">validate.js.</span>js.validators</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">validate.js.</span>js.version</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">validate.js.</span>validators</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">validate.js.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.validate.js.formatters">module validate.js.formatters</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.formatters.constraint">
+            function <span class="apidocSignatureSpan">validate.js.formatters.</span>constraint
+            <span class="apidocSignatureSpan">(errors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.formatters.detailed">
+            function <span class="apidocSignatureSpan">validate.js.formatters.</span>detailed
+            <span class="apidocSignatureSpan">(errors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.formatters.flat">
+            function <span class="apidocSignatureSpan">validate.js.formatters.</span>flat
+            <span class="apidocSignatureSpan">(errors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.formatters.grouped">
+            function <span class="apidocSignatureSpan">validate.js.formatters.</span>grouped
+            <span class="apidocSignatureSpan">(errors)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.validate.js.validators">module validate.js.validators</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validators.date">
+            function <span class="apidocSignatureSpan">validate.js.validators.</span>date
+            <span class="apidocSignatureSpan">(value, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validators.datetime">
+            function <span class="apidocSignatureSpan">validate.js.validators.</span>datetime
+            <span class="apidocSignatureSpan">(value, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validators.email">
+            function <span class="apidocSignatureSpan">validate.js.validators.</span>email
+            <span class="apidocSignatureSpan">(value, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validators.equality">
+            function <span class="apidocSignatureSpan">validate.js.validators.</span>equality
+            <span class="apidocSignatureSpan">(value, options, attribute, attributes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validators.exclusion">
+            function <span class="apidocSignatureSpan">validate.js.validators.</span>exclusion
+            <span class="apidocSignatureSpan">(value, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validators.format">
+            function <span class="apidocSignatureSpan">validate.js.validators.</span>format
+            <span class="apidocSignatureSpan">(value, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validators.inclusion">
+            function <span class="apidocSignatureSpan">validate.js.validators.</span>inclusion
+            <span class="apidocSignatureSpan">(value, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validators.length">
+            function <span class="apidocSignatureSpan">validate.js.validators.</span>length
+            <span class="apidocSignatureSpan">(value, options, attribute)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validators.numericality">
+            function <span class="apidocSignatureSpan">validate.js.validators.</span>numericality
+            <span class="apidocSignatureSpan">(value, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validators.presence">
+            function <span class="apidocSignatureSpan">validate.js.validators.</span>presence
+            <span class="apidocSignatureSpan">(value, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.validators.url">
+            function <span class="apidocSignatureSpan">validate.js.validators.</span>url
+            <span class="apidocSignatureSpan">(value, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.validate.js.version">module validate.js.version</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.validate.js.version.toString">
+            function <span class="apidocSignatureSpan">validate.js.version.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">validate.js.version.</span>major</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">validate.js.version.</span>minor</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">validate.js.version.</span>patch</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">validate.js.version.</span>metadata</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.validate.js" id="apidoc.module.validate.js">module validate.js</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.Promise" id="apidoc.element.validate.js.Promise">
+        function <span class="apidocSignatureSpan">validate.js.</span>Promise
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Promise() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Removes unknown attributes
+if (options.cleanAttributes !== false) {
+  attributes = v.cleanAttributes(attributes, constraints);
+}
+
+var results = v.runValidations(attributes, constraints, options);
+
+return new v.<span class="apidocCodeKeywordSpan">Promise</span>(function(resolve, reject) {
+  v.waitForResults(results).then(function() {
+    var errors = v.processValidationResults(results, options);
+    if (errors) {
+      reject(new WrapErrors(errors, options, attributes, constraints));
+    } else {
+      resolve(attributes);
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.async" id="apidoc.element.validate.js.async">
+        function <span class="apidocSignatureSpan">validate.js.</span>async
+        <span class="apidocSignatureSpan">(attributes, constraints, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">async = function (attributes, constraints, options) {
+  options = v.extend({}, v.async.options, options);
+
+  var WrapErrors = options.wrapErrors || function(errors) {
+    return errors;
+  };
+
+  // Removes unknown attributes
+  if (options.cleanAttributes !== false) {
+    attributes = v.cleanAttributes(attributes, constraints);
+  }
+
+  var results = v.runValidations(attributes, constraints, options);
+
+  return new v.Promise(function(resolve, reject) {
+    v.waitForResults(results).then(function() {
+      var errors = v.processValidationResults(results, options);
+      if (errors) {
+        reject(new WrapErrors(errors, options, attributes, constraints));
+      } else {
+        resolve(attributes);
+      }
+    }, function(err) {
+      reject(err);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.capitalize" id="apidoc.element.validate.js.capitalize">
+        function <span class="apidocSignatureSpan">validate.js.</span>capitalize
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">capitalize = function (str) {
+  if (!v.isString(str)) {
+    return str;
+  }
+  return str[0].toUpperCase() + str.slice(1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      ret.push(errorInfo);
+      return;
+    }
+
+    if (error[0] === '^') {
+      error = error.slice(1);
+    } else if (options.fullMessages !== false) {
+      error = v.<span class="apidocCodeKeywordSpan">capitalize</span>(v.prettify(errorInfo.attribute)) + " " + error;
+    }
+    error = error.replace(/\\\^/g, "^");
+    error = v.format(error, {value: v.stringifyValue(errorInfo.value)});
+    ret.push(v.extend({}, errorInfo, {error: error}));
+  });
+  return ret;
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.cleanAttributes" id="apidoc.element.validate.js.cleanAttributes">
+        function <span class="apidocSignatureSpan">validate.js.</span>cleanAttributes
+        <span class="apidocSignatureSpan">(attributes, whitelist)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cleanAttributes = function (attributes, whitelist) {
+  function whitelistCreator(obj, key, last) {
+    if (v.isObject(obj[key])) {
+      return obj[key];
+    }
+    return (obj[key] = last ? true : {});
+  }
+
+  function buildObjectWhitelist(whitelist) {
+    var ow = {}
+      , lastObject
+      , attr;
+    for (attr in whitelist) {
+      if (!whitelist[attr]) {
+        continue;
+      }
+      v.forEachKeyInKeypath(ow, attr, whitelistCreator);
+    }
+    return ow;
+  }
+
+  function cleanRecursive(attributes, whitelist) {
+    if (!v.isObject(attributes)) {
+      return attributes;
+    }
+
+    var ret = v.extend({}, attributes)
+      , w
+      , attribute;
+
+    for (attribute in attributes) {
+      w = whitelist[attribute];
+
+      if (v.isObject(w)) {
+        ret[attribute] = cleanRecursive(ret[attribute], w);
+      } else if (!w) {
+        delete ret[attribute];
+      }
+    }
+    return ret;
+  }
+
+  if (!v.isObject(whitelist) || !v.isObject(attributes)) {
+    return {};
+  }
+
+  whitelist = buildObjectWhitelist(whitelist);
+  return cleanRecursive(attributes, whitelist);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var WrapErrors = options.wrapErrors || function(errors) {
+  return errors;
+};
+
+// Removes unknown attributes
+if (options.cleanAttributes !== false) {
+  attributes = v.<span class="apidocCodeKeywordSpan">cleanAttributes</span>(attributes, constraints);
+}
+
+var results = v.runValidations(attributes, constraints, options);
+
+return new v.Promise(function(resolve, reject) {
+  v.waitForResults(results).then(function() {
+    var errors = v.processValidationResults(results, options);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.collectFormValues" id="apidoc.element.validate.js.collectFormValues">
+        function <span class="apidocSignatureSpan">validate.js.</span>collectFormValues
+        <span class="apidocSignatureSpan">(form, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">collectFormValues = function (form, options) {
+  var values = {}
+    , i
+    , j
+    , input
+    , inputs
+    , option
+    , value;
+
+  if (v.isJqueryElement(form)) {
+    form = form[0];
+  }
+
+  if (!form) {
+    return values;
+  }
+
+  options = options || {};
+
+  inputs = form.querySelectorAll("input[name], textarea[name]");
+  for (i = 0; i &lt; inputs.length; ++i) {
+    input = inputs.item(i);
+
+    if (v.isDefined(input.getAttribute("data-ignored"))) {
+      continue;
+    }
+
+    value = v.sanitizeFormValue(input.value, options);
+    if (input.type === "number") {
+      value = value ? +value : null;
+    } else if (input.type === "checkbox") {
+      if (input.attributes.value) {
+        if (!input.checked) {
+          value = values[input.name] || null;
+        }
+      } else {
+        value = input.checked;
+      }
+    } else if (input.type === "radio") {
+      if (!input.checked) {
+        value = values[input.name] || null;
+      }
+    }
+    values[input.name] = value;
+  }
+
+  inputs = form.querySelectorAll("select[name]");
+  for (i = 0; i &lt; inputs.length; ++i) {
+    input = inputs.item(i);
+    if (input.multiple) {
+      value = [];
+      for (j in input.options) {
+        option = input.options[j];
+        if (option.selected) {
+          value.push(v.sanitizeFormValue(option.value, options));
+        }
+      }
+    } else {
+      value = v.sanitizeFormValue(input.options[input.selectedIndex].value, options);
+    }
+    values[input.name] = value;
+  }
+
+  return values;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  , value
+  , validators
+  , validator
+  , validatorOptions
+  , error;
+
+if (v.isDomElement(attributes) || v.isJqueryElement(attributes)) {
+  attributes = v.<span class="apidocCodeKeywordSpan">collectFormValues</span>(attributes);
+}
+
+// Loops through each constraints, finds the correct validator and run it.
+for (attr in constraints) {
+  value = v.getDeepObjectValue(attributes, attr);
+  // This allows the constraints for an attribute to be a function.
+  // The function will be called with the value, attribute name, the complete dict of
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.contains" id="apidoc.element.validate.js.contains">
+        function <span class="apidocSignatureSpan">validate.js.</span>contains
+        <span class="apidocSignatureSpan">(obj, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">contains = function (obj, value) {
+  if (!v.isDefined(obj)) {
+    return false;
+  }
+  if (v.isArray(obj)) {
+    return obj.indexOf(value) !== -1;
+  }
+  return value in obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!v.isDefined(value)) {
+    return;
+  }
+  if (v.isArray(options)) {
+    options = {within: options};
+  }
+  options = v.extend({}, this.options, options);
+  if (v.<span class="apidocCodeKeywordSpan">contains</span>(options.within, value)) {
+    return;
+  }
+  var message = options.message ||
+    this.message ||
+    "^%{value} is not included in the list";
+  return v.format(message, {value: value});
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.convertErrorMessages" id="apidoc.element.validate.js.convertErrorMessages">
+        function <span class="apidocSignatureSpan">validate.js.</span>convertErrorMessages
+        <span class="apidocSignatureSpan">(errors, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">convertErrorMessages = function (errors, options) {
+  options = options || {};
+
+  var ret = [];
+  errors.forEach(function(errorInfo) {
+    var error = v.result(errorInfo.error,
+        errorInfo.value,
+        errorInfo.attribute,
+        errorInfo.options,
+        errorInfo.attributes,
+        errorInfo.globalOptions);
+
+    if (!v.isString(error)) {
+      ret.push(errorInfo);
+      return;
+    }
+
+    if (error[0] === '^') {
+      error = error.slice(1);
+    } else if (options.fullMessages !== false) {
+      error = v.capitalize(v.prettify(errorInfo.attribute)) + " " + error;
+    }
+    error = error.replace(/\\\^/g, "^");
+    error = v.format(error, {value: v.stringifyValue(errorInfo.value)});
+    ret.push(v.extend({}, errorInfo, {error: error}));
+  });
+  return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    },
+
+    // Takes the output from runValidations and converts it to the correct
+    // output format.
+    processValidationResults: function(errors, options) {
+errors = v.pruneEmptyErrors(errors, options);
+errors = v.expandMultipleErrors(errors, options);
+errors = v.<span class="apidocCodeKeywordSpan">convertErrorMessages</span>(errors, options);
+
+var format = options.format || "grouped";
+
+if (typeof v.formatters[format] === 'function') {
+  errors = v.formatters[format](errors);
+} else {
+  throw new Error(v.format("Unknown format %{format}", options));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.error" id="apidoc.element.validate.js.error">
+        function <span class="apidocSignatureSpan">validate.js.</span>error
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">error = function (msg) {
+  if (typeof console !== "undefined" &amp;&amp; console.error) {
+    console.error("[validate.js] " + msg);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (typeof console !== "undefined" &amp;&amp; console.warn) {
+      console.warn("[validate.js] " + msg);
+    }
+  },
+
+  error: function(msg) {
+    if (typeof console !== "undefined" &amp;&amp; console.error) {
+      console.<span class="apidocCodeKeywordSpan">error</span>("[validate.js] " + msg);
+    }
+  }
+});
+
+validate.validators = {
+  // Presence validates that the value isn't empty
+  presence: function(value, options) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.expandMultipleErrors" id="apidoc.element.validate.js.expandMultipleErrors">
+        function <span class="apidocSignatureSpan">validate.js.</span>expandMultipleErrors
+        <span class="apidocSignatureSpan">(errors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">expandMultipleErrors = function (errors) {
+  var ret = [];
+  errors.forEach(function(error) {
+    // Removes errors without a message
+    if (v.isArray(error.error)) {
+      error.error.forEach(function(msg) {
+        ret.push(v.extend({}, error, {error: msg}));
+      });
+    } else {
+      ret.push(error);
+    }
+  });
+  return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return results;
+    },
+
+    // Takes the output from runValidations and converts it to the correct
+    // output format.
+    processValidationResults: function(errors, options) {
+errors = v.pruneEmptyErrors(errors, options);
+errors = v.<span class="apidocCodeKeywordSpan">expandMultipleErrors</span>(errors, options);
+errors = v.convertErrorMessages(errors, options);
+
+var format = options.format || "grouped";
+
+if (typeof v.formatters[format] === 'function') {
+  errors = v.formatters[format](errors);
+} else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.exposeModule" id="apidoc.element.validate.js.exposeModule">
+        function <span class="apidocSignatureSpan">validate.js.</span>exposeModule
+        <span class="apidocSignatureSpan">(validate, root, exports, module, define)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exposeModule = function (validate, root, exports, module, define) {
+  if (exports) {
+    if (module &amp;&amp; module.exports) {
+      exports = module.exports = validate;
+    }
+    exports.validate = validate;
+  } else {
+    root.validate = validate;
+    if (validate.isFunction(define) &amp;&amp; define.amd) {
+      define([], function () { return validate; });
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return result.validator;
+}).sort();
+      }
+      return errors;
+    }
+  };
+
+  validate.<span class="apidocCodeKeywordSpan">exposeModule</span>(validate, this, exports, module, define);
+}).call(this,
+typeof exports !== 'undefined' ? /* istanbul ignore next */ exports : null,
+typeof module !== 'undefined' ? /* istanbul ignore next */ module : null,
+typeof define !== 'undefined' ? /* istanbul ignore next */ define : null);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.extend" id="apidoc.element.validate.js.extend">
+        function <span class="apidocSignatureSpan">validate.js.</span>extend
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extend = function (obj) {
+  [].slice.call(arguments, 1).forEach(function(source) {
+    for (var attr in source) {
+      obj[attr] = source[attr];
+    }
+  });
+  return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  //     * flat - Returns a flat array of just the error messages
+  //     * grouped - Returns the messages grouped by attribute (default)
+  //     * detailed - Returns an array of the raw validation data
+  //   - fullMessages (boolean) - If `true` (default) the attribute name is prepended to the error.
+  //
+  // Please note that the options are also passed to each validator.
+  var validate = function(attributes, constraints, options) {
+options = v.<span class="apidocCodeKeywordSpan">extend</span>({}, v.options, options);
+
+var results = v.runValidations(attributes, constraints, options)
+  , attr
+  , validator;
+
+for (attr in results) {
+  for (validator in results[attr]) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.flattenErrorsToArray" id="apidoc.element.validate.js.flattenErrorsToArray">
+        function <span class="apidocSignatureSpan">validate.js.</span>flattenErrorsToArray
+        <span class="apidocSignatureSpan">(errors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">flattenErrorsToArray = function (errors) {
+  return errors
+    .map(function(error) { return error.error; })
+    .filter(function(value, index, self) {
+      return self.indexOf(value) === index;
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+detailed: function(errors) {return errors;},
+flat: v.flattenErrorsToArray,
+grouped: function(errors) {
+  var attr;
+
+  errors = v.groupErrorsByAttribute(errors);
+  for (attr in errors) {
+    errors[attr] = v.<span class="apidocCodeKeywordSpan">flattenErrorsToArray</span>(errors[attr]);
+  }
+  return errors;
+},
+constraint: function(errors) {
+  var attr;
+  errors = v.groupErrorsByAttribute(errors);
+  for (attr in errors) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.forEachKeyInKeypath" id="apidoc.element.validate.js.forEachKeyInKeypath">
+        function <span class="apidocSignatureSpan">validate.js.</span>forEachKeyInKeypath
+        <span class="apidocSignatureSpan">(object, keypath, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">forEachKeyInKeypath = function (object, keypath, callback) {
+  if (!v.isString(keypath)) {
+    return undefined;
+  }
+
+  var key = ""
+    , i
+    , escape = false;
+
+  for (i = 0; i &lt; keypath.length; ++i) {
+    switch (keypath[i]) {
+      case '.':
+        if (escape) {
+          escape = false;
+          key += '.';
+        } else {
+          object = callback(object, key, false);
+          key = "";
+        }
+        break;
+
+      case '\\':
+        if (escape) {
+          escape = false;
+          key += '\\';
+        } else {
+          escape = true;
+        }
+        break;
+
+      default:
+        escape = false;
+        key += keypath[i];
+        break;
+    }
+  }
+
+  return callback(object, key, true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+
+getDeepObjectValue: function(obj, keypath) {
+  if (!v.isObject(obj)) {
+    return undefined;
+  }
+
+  return v.<span class="apidocCodeKeywordSpan">forEachKeyInKeypath</span>(obj, keypath, function(obj, key) {
+    if (v.isObject(obj)) {
+      return obj[key];
+    }
+  });
+},
+
+// This returns an object with all the values of the form.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.format" id="apidoc.element.validate.js.format">
+        function <span class="apidocSignatureSpan">validate.js.</span>format
+        <span class="apidocSignatureSpan">(str, vals)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">format = function (str, vals) {
+  if (!v.isString(str)) {
+    return str;
+  }
+  return str.replace(v.format.FORMAT_REGEXP, function(m0, m1, m2) {
+    if (m1 === '%') {
+      return "%{" + m2 + "}";
+    } else {
+      return String(vals[m2]);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// The toString function will allow it to be coerced into a string
+version: {
+  major: 0,
+  minor: 11,
+  patch: 1,
+  metadata: null,
+  toString: function() {
+    var version = v.<span class="apidocCodeKeywordSpan">format</span>("%{major}.%{minor}.%{patch}", v.version);
+    if (!v.isEmpty(v.version.metadata)) {
+      version += "+" + v.version.metadata;
+    }
+    return version;
+  }
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.getDeepObjectValue" id="apidoc.element.validate.js.getDeepObjectValue">
+        function <span class="apidocSignatureSpan">validate.js.</span>getDeepObjectValue
+        <span class="apidocSignatureSpan">(obj, keypath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getDeepObjectValue = function (obj, keypath) {
+  if (!v.isObject(obj)) {
+    return undefined;
+  }
+
+  return v.forEachKeyInKeypath(obj, keypath, function(obj, key) {
+    if (v.isObject(obj)) {
+      return obj[key];
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+if (v.isDomElement(attributes) || v.isJqueryElement(attributes)) {
+  attributes = v.collectFormValues(attributes);
+}
+
+// Loops through each constraints, finds the correct validator and run it.
+for (attr in constraints) {
+  value = v.<span class="apidocCodeKeywordSpan">getDeepObjectValue</span>(attributes, attr);
+  // This allows the constraints for an attribute to be a function.
+  // The function will be called with the value, attribute name, the complete dict of
+  // attributes as well as the options and constraints passed in.
+  // This is useful when you want to have different
+  // validations depending on the attribute value.
+  validators = v.result(constraints[attr], value, attributes, attr, options, constraints);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.groupErrorsByAttribute" id="apidoc.element.validate.js.groupErrorsByAttribute">
+        function <span class="apidocSignatureSpan">validate.js.</span>groupErrorsByAttribute
+        <span class="apidocSignatureSpan">(errors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">groupErrorsByAttribute = function (errors) {
+  var ret = {};
+  errors.forEach(function(error) {
+    var list = ret[error.attribute];
+    if (list) {
+      list.push(error);
+    } else {
+      ret[error.attribute] = [error];
+    }
+  });
+  return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  validate.formatters = {
+detailed: function(errors) {return errors;},
+flat: v.flattenErrorsToArray,
+grouped: function(errors) {
+  var attr;
+
+  errors = v.<span class="apidocCodeKeywordSpan">groupErrorsByAttribute</span>(errors);
+  for (attr in errors) {
+    errors[attr] = v.flattenErrorsToArray(errors[attr]);
+  }
+  return errors;
+},
+constraint: function(errors) {
+  var attr;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isArray" id="apidoc.element.validate.js.isArray">
+        function <span class="apidocSignatureSpan">validate.js.</span>isArray
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isArray = function (value) {
+  return {}.toString.call(value) === '[object Array]';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// Whitespace only strings are empty
+if (v.isString(value)) {
+  return v.EMPTY_STRING_REGEXP.test(value);
+}
+
+// For arrays we use the length property
+if (v.<span class="apidocCodeKeywordSpan">isArray</span>(value)) {
+  return value.length === 0;
+}
+
+// Dates have no attributes but aren't empty
+if (v.isDate(value)) {
+  return false;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isBoolean" id="apidoc.element.validate.js.isBoolean">
+        function <span class="apidocSignatureSpan">validate.js.</span>isBoolean
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isBoolean = function (value) {
+  return typeof value === 'boolean';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isDate" id="apidoc.element.validate.js.isDate">
+        function <span class="apidocSignatureSpan">validate.js.</span>isDate
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isDate = function (obj) {
+  return obj instanceof Date;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// For arrays we use the length property
+if (v.isArray(value)) {
+  return value.length === 0;
+}
+
+// Dates have no attributes but aren't empty
+if (v.<span class="apidocCodeKeywordSpan">isDate</span>(value)) {
+  return false;
+}
+
+// If we find at least one property we consider it non empty
+if (v.isObject(value)) {
+  for (attr in value) {
+    return false;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isDefined" id="apidoc.element.validate.js.isDefined">
+        function <span class="apidocSignatureSpan">validate.js.</span>isDefined
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isDefined = function (obj) {
+  return obj !== null &amp;&amp; obj !== undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+    },
+
+    isEmpty: function(value) {
+var attr;
+
+// Null and undefined are empty
+if (!v.<span class="apidocCodeKeywordSpan">isDefined</span>(value)) {
+  return true;
+}
+
+// functions are non empty
+if (v.isFunction(value)) {
+  return false;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isDomElement" id="apidoc.element.validate.js.isDomElement">
+        function <span class="apidocSignatureSpan">validate.js.</span>isDomElement
+        <span class="apidocSignatureSpan">(o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isDomElement = function (o) {
+  if (!o) {
+    return false;
+  }
+
+  if (!o.querySelectorAll || !o.querySelector) {
+    return false;
+  }
+
+  if (v.isObject(document) &amp;&amp; o === document) {
+    return true;
+  }
+
+  // http://stackoverflow.com/a/384380/699304
+<span class="apidocCodeCommentSpan">  /* istanbul ignore else */
+</span>  if (typeof HTMLElement === "object") {
+    return o instanceof HTMLElement;
+  } else {
+    return o &amp;&amp;
+      typeof o === "object" &amp;&amp;
+      o !== null &amp;&amp;
+      o.nodeType === 1 &amp;&amp;
+      typeof o.nodeName === "string";
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  , validatorName
+  , value
+  , validators
+  , validator
+  , validatorOptions
+  , error;
+
+if (v.<span class="apidocCodeKeywordSpan">isDomElement</span>(attributes) || v.isJqueryElement(attributes)) {
+  attributes = v.collectFormValues(attributes);
+}
+
+// Loops through each constraints, finds the correct validator and run it.
+for (attr in constraints) {
+  value = v.getDeepObjectValue(attributes, attr);
+  // This allows the constraints for an attribute to be a function.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isEmpty" id="apidoc.element.validate.js.isEmpty">
+        function <span class="apidocSignatureSpan">validate.js.</span>isEmpty
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isEmpty = function (value) {
+  var attr;
+
+  // Null and undefined are empty
+  if (!v.isDefined(value)) {
+    return true;
+  }
+
+  // functions are non empty
+  if (v.isFunction(value)) {
+    return false;
+  }
+
+  // Whitespace only strings are empty
+  if (v.isString(value)) {
+    return v.EMPTY_STRING_REGEXP.test(value);
+  }
+
+  // For arrays we use the length property
+  if (v.isArray(value)) {
+    return value.length === 0;
+  }
+
+  // Dates have no attributes but aren't empty
+  if (v.isDate(value)) {
+    return false;
+  }
+
+  // If we find at least one property we consider it non empty
+  if (v.isObject(value)) {
+    for (attr in value) {
+      return false;
+    }
+    return true;
+  }
+
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+version: {
+  major: 0,
+  minor: 11,
+  patch: 1,
+  metadata: null,
+  toString: function() {
+    var version = v.format("%{major}.%{minor}.%{patch}", v.version);
+    if (!v.<span class="apidocCodeKeywordSpan">isEmpty</span>(v.version.metadata)) {
+      version += "+" + v.version.metadata;
+    }
+    return version;
+  }
+},
+
+// Below is the dependencies that are used in validate.js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isFunction" id="apidoc.element.validate.js.isFunction">
+        function <span class="apidocSignatureSpan">validate.js.</span>isFunction
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isFunction = function (value) {
+  return typeof value === 'function';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+isDefined: function(obj) {
+  return obj !== null &amp;&amp; obj !== undefined;
+},
+
+// Checks if the given argument is a promise. Anything with a `then`
+// function is considered a promise.
+isPromise: function(p) {
+  return !!p &amp;&amp; v.<span class="apidocCodeKeywordSpan">isFunction</span>(p.then);
+},
+
+isJqueryElement: function(o) {
+  return o &amp;&amp; v.isString(o.jquery);
+},
+
+isDomElement: function(o) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isHash" id="apidoc.element.validate.js.isHash">
+        function <span class="apidocSignatureSpan">validate.js.</span>isHash
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isHash = function (value) {
+  return v.isObject(value) &amp;&amp; !v.isArray(value) &amp;&amp; !v.isFunction(value);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isInteger" id="apidoc.element.validate.js.isInteger">
+        function <span class="apidocSignatureSpan">validate.js.</span>isInteger
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isInteger = function (value) {
+  return v.isNumber(value) &amp;&amp; value % 1 === 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    this.notValid ||
+    this.message ||
+    "is not a number";
+}
+
+// Same logic as above, sort of. Don't bother with comparisons if this
+// doesn't pass.
+if (options.onlyInteger &amp;&amp; !v.<span class="apidocCodeKeywordSpan">isInteger</span>(value)) {
+  return options.message ||
+    options.notInteger ||
+    this.notInteger ||
+    this.message ||
+    "must be an integer";
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isJqueryElement" id="apidoc.element.validate.js.isJqueryElement">
+        function <span class="apidocSignatureSpan">validate.js.</span>isJqueryElement
+        <span class="apidocSignatureSpan">(o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isJqueryElement = function (o) {
+  return o &amp;&amp; v.isString(o.jquery);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  , validatorName
+  , value
+  , validators
+  , validator
+  , validatorOptions
+  , error;
+
+if (v.isDomElement(attributes) || v.<span class="apidocCodeKeywordSpan">isJqueryElement</span>(attributes)) {
+  attributes = v.collectFormValues(attributes);
+}
+
+// Loops through each constraints, finds the correct validator and run it.
+for (attr in constraints) {
+  value = v.getDeepObjectValue(attributes, attr);
+  // This allows the constraints for an attribute to be a function.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isNumber" id="apidoc.element.validate.js.isNumber">
+        function <span class="apidocSignatureSpan">validate.js.</span>isNumber
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isNumber = function (value) {
+  return typeof value === 'number' &amp;&amp; !isNaN(value);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+isFunction: function(value) {
+  return typeof value === 'function';
+},
+
+// A simple check to verify that the value is an integer. Uses `isNumber`
+// and a simple modulo check.
+isInteger: function(value) {
+  return v.<span class="apidocCodeKeywordSpan">isNumber</span>(value) &amp;&amp; value % 1 === 0;
+},
+
+// Checks if the value is a boolean
+isBoolean: function(value) {
+  return typeof value === 'boolean';
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isObject" id="apidoc.element.validate.js.isObject">
+        function <span class="apidocSignatureSpan">validate.js.</span>isObject
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isObject = function (obj) {
+  return obj === Object(obj);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return false;
+}
+
+if (!o.querySelectorAll || !o.querySelector) {
+  return false;
+}
+
+if (v.<span class="apidocCodeKeywordSpan">isObject</span>(document) &amp;&amp; o === document) {
+  return true;
+}
+
+// http://stackoverflow.com/a/384380/699304
+/* istanbul ignore else */
+if (typeof HTMLElement === "object") {
+  return o instanceof HTMLElement;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isPromise" id="apidoc.element.validate.js.isPromise">
+        function <span class="apidocSignatureSpan">validate.js.</span>isPromise
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPromise = function (p) {
+  return !!p &amp;&amp; v.isFunction(p.then);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  var results = v.runValidations(attributes, constraints, options)
+    , attr
+    , validator;
+
+  for (attr in results) {
+    for (validator in results[attr]) {
+      if (v.<span class="apidocCodeKeywordSpan">isPromise</span>(results[attr][validator])) {
+        throw new Error("Use validate.async if you want support for promises");
+      }
+    }
+  }
+  return validate.processValidationResults(results, options);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.isString" id="apidoc.element.validate.js.isString">
+        function <span class="apidocSignatureSpan">validate.js.</span>isString
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isString = function (value) {
+  return typeof value === 'string';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Checks if the given argument is a promise. Anything with a `then`
+// function is considered a promise.
+isPromise: function(p) {
+  return !!p &amp;&amp; v.isFunction(p.then);
+},
+
+isJqueryElement: function(o) {
+  return o &amp;&amp; v.<span class="apidocCodeKeywordSpan">isString</span>(o.jquery);
+},
+
+isDomElement: function(o) {
+  if (!o) {
+    return false;
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.prettify" id="apidoc.element.validate.js.prettify">
+        function <span class="apidocSignatureSpan">validate.js.</span>prettify
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prettify = function (str) {
+  if (v.isNumber(str)) {
+    // If there are more than 2 decimals round it to two
+    if ((str * 100) % 1 === 0) {
+      return "" + str;
+    } else {
+      return parseFloat(Math.round(str * 100) / 100).toFixed(2);
+    }
+  }
+
+  if (v.isArray(str)) {
+    return str.map(function(s) { return v.prettify(s); }).join(", ");
+  }
+
+  if (v.isObject(str)) {
+    return str.toString();
+  }
+
+  // Ensure the string is actually a string
+  str = "" + str;
+
+  return str
+    // Splits keys separated by periods
+    .replace(/([^\s])\.([^\s])/g, '$1 $2')
+    // Removes backslashes
+    .replace(/\\+/g, '')
+    // Replaces - and - with space
+    .replace(/[_-]/g, ' ')
+    // Splits camel cased words
+    .replace(/([a-z])([A-Z])/g, function(m0, m1, m2) {
+      return "" + m1 + " " + m2.toLowerCase();
+    })
+    .toLowerCase();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return "" + str;
+  } else {
+    return parseFloat(Math.round(str * 100) / 100).toFixed(2);
+  }
+}
+
+if (v.isArray(str)) {
+  return str.map(function(s) { return v.<span class="apidocCodeKeywordSpan">prettify</span>(s); }).join(", ");
+}
+
+if (v.isObject(str)) {
+  return str.toString();
+}
+
+// Ensure the string is actually a string
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.processValidationResults" id="apidoc.element.validate.js.processValidationResults">
+        function <span class="apidocSignatureSpan">validate.js.</span>processValidationResults
+        <span class="apidocSignatureSpan">(errors, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">processValidationResults = function (errors, options) {
+  errors = v.pruneEmptyErrors(errors, options);
+  errors = v.expandMultipleErrors(errors, options);
+  errors = v.convertErrorMessages(errors, options);
+
+  var format = options.format || "grouped";
+
+  if (typeof v.formatters[format] === 'function') {
+    errors = v.formatters[format](errors);
+  } else {
+    throw new Error(v.format("Unknown format %{format}", options));
+  }
+
+  return v.isEmpty(errors) ? undefined : errors;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  for (attr in results) {
+    for (validator in results[attr]) {
+      if (v.isPromise(results[attr][validator])) {
+        throw new Error("Use validate.async if you want support for promises");
+      }
+    }
+  }
+  return validate.<span class="apidocCodeKeywordSpan">processValidationResults</span>(results, options);
+};
+
+var v = validate;
+
+// Copies over attributes from one or more sources to a single destination.
+// Very much similar to underscore's extend.
+// The first argument is the target object and the remaining arguments will be
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.pruneEmptyErrors" id="apidoc.element.validate.js.pruneEmptyErrors">
+        function <span class="apidocSignatureSpan">validate.js.</span>pruneEmptyErrors
+        <span class="apidocSignatureSpan">(errors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pruneEmptyErrors = function (errors) {
+  return errors.filter(function(error) {
+    return !v.isEmpty(error.error);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+return results;
+    },
+
+    // Takes the output from runValidations and converts it to the correct
+    // output format.
+    processValidationResults: function(errors, options) {
+errors = v.<span class="apidocCodeKeywordSpan">pruneEmptyErrors</span>(errors, options);
+errors = v.expandMultipleErrors(errors, options);
+errors = v.convertErrorMessages(errors, options);
+
+var format = options.format || "grouped";
+
+if (typeof v.formatters[format] === 'function') {
+  errors = v.formatters[format](errors);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.result" id="apidoc.element.validate.js.result">
+        function <span class="apidocSignatureSpan">validate.js.</span>result
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">result = function (value) {
+  var args = [].slice.call(arguments, 1);
+  if (typeof value === 'function') {
+    value = value.apply(null, args);
+  }
+  return value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      for (attr in constraints) {
+        value = v.getDeepObjectValue(attributes, attr);
+        // This allows the constraints for an attribute to be a function.
+        // The function will be called with the value, attribute name, the complete dict of
+        // attributes as well as the options and constraints passed in.
+        // This is useful when you want to have different
+        // validations depending on the attribute value.
+        validators = v.<span class="apidocCodeKeywordSpan">result</span>(constraints[attr], value, attributes, attr, options, constraints
+);
+
+        for (validatorName in validators) {
+validator = v.validators[validatorName];
+
+if (!validator) {
+  error = v.format("Unknown validator %{name}", {name: validatorName});
+  throw new Error(error);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.runValidations" id="apidoc.element.validate.js.runValidations">
+        function <span class="apidocSignatureSpan">validate.js.</span>runValidations
+        <span class="apidocSignatureSpan">(attributes, constraints, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runValidations = function (attributes, constraints, options) {
+  var results = []
+    , attr
+    , validatorName
+    , value
+    , validators
+    , validator
+    , validatorOptions
+    , error;
+
+  if (v.isDomElement(attributes) || v.isJqueryElement(attributes)) {
+    attributes = v.collectFormValues(attributes);
+  }
+
+  // Loops through each constraints, finds the correct validator and run it.
+  for (attr in constraints) {
+    value = v.getDeepObjectValue(attributes, attr);
+    // This allows the constraints for an attribute to be a function.
+    // The function will be called with the value, attribute name, the complete dict of
+    // attributes as well as the options and constraints passed in.
+    // This is useful when you want to have different
+    // validations depending on the attribute value.
+    validators = v.result(constraints[attr], value, attributes, attr, options, constraints);
+
+    for (validatorName in validators) {
+      validator = v.validators[validatorName];
+
+      if (!validator) {
+        error = v.format("Unknown validator %{name}", {name: validatorName});
+        throw new Error(error);
+      }
+
+      validatorOptions = validators[validatorName];
+      // This allows the options to be a function. The function will be
+      // called with the value, attribute name, the complete dict of
+      // attributes as well as the options and constraints passed in.
+      // This is useful when you want to have different
+      // validations depending on the attribute value.
+      validatorOptions = v.result(validatorOptions, value, attributes, attr, options, constraints);
+      if (!validatorOptions) {
+        continue;
+      }
+      results.push({
+        attribute: attr,
+        value: value,
+        validator: validatorName,
+        globalOptions: options,
+        attributes: attributes,
+        options: validatorOptions,
+        error: validator.call(validator,
+            value,
+            validatorOptions,
+            attr,
+            attributes,
+            options)
+      });
+    }
+  }
+
+  return results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  //     * detailed - Returns an array of the raw validation data
+  //   - fullMessages (boolean) - If `true` (default) the attribute name is prepended to the error.
+  //
+  // Please note that the options are also passed to each validator.
+  var validate = function(attributes, constraints, options) {
+options = v.extend({}, v.options, options);
+
+var results = v.<span class="apidocCodeKeywordSpan">runValidations</span>(attributes, constraints, options)
+  , attr
+  , validator;
+
+for (attr in results) {
+  for (validator in results[attr]) {
+    if (v.isPromise(results[attr][validator])) {
+      throw new Error("Use validate.async if you want support for promises");
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.sanitizeFormValue" id="apidoc.element.validate.js.sanitizeFormValue">
+        function <span class="apidocSignatureSpan">validate.js.</span>sanitizeFormValue
+        <span class="apidocSignatureSpan">(value, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sanitizeFormValue = function (value, options) {
+  if (options.trim &amp;&amp; v.isString(value)) {
+    value = value.trim();
+  }
+
+  if (options.nullify !== false &amp;&amp; value === "") {
+    return null;
+  }
+  return value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      for (i = 0; i &lt; inputs.length; ++i) {
+input = inputs.item(i);
+
+if (v.isDefined(input.getAttribute("data-ignored"))) {
+  continue;
+}
+
+value = v.<span class="apidocCodeKeywordSpan">sanitizeFormValue</span>(input.value, options);
+if (input.type === "number") {
+  value = value ? +value : null;
+} else if (input.type === "checkbox") {
+  if (input.attributes.value) {
+    if (!input.checked) {
+      value = values[input.name] || null;
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.single" id="apidoc.element.validate.js.single">
+        function <span class="apidocSignatureSpan">validate.js.</span>single
+        <span class="apidocSignatureSpan">(value, constraints, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">single = function (value, constraints, options) {
+  options = v.extend({}, v.single.options, options, {
+    format: "flat",
+    fullMessages: false
+  });
+  return v({single: value}, {single: constraints}, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.stringifyValue" id="apidoc.element.validate.js.stringifyValue">
+        function <span class="apidocSignatureSpan">validate.js.</span>stringifyValue
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stringifyValue = function (value) {
+  return v.prettify(value);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    if (error[0] === '^') {
+      error = error.slice(1);
+    } else if (options.fullMessages !== false) {
+      error = v.capitalize(v.prettify(errorInfo.attribute)) + " " + error;
+    }
+    error = error.replace(/\\\^/g, "^");
+    error = v.format(error, {value: v.<span class="apidocCodeKeywordSpan">stringifyValue</span>(errorInfo.value)});
+    ret.push(v.extend({}, errorInfo, {error: error}));
+  });
+  return ret;
+},
+
+// In:
+// [{attribute: "&lt;attributeName&gt;", ...}]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.unique" id="apidoc.element.validate.js.unique">
+        function <span class="apidocSignatureSpan">validate.js.</span>unique
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unique = function (array) {
+  if (!v.isArray(array)) {
+    return array;
+  }
+  return array.filter(function(el, index, array) {
+    return array.indexOf(el) == index;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      date: this.format(latest, options),
+      value: this.format(value, options)
+    });
+    errors.push(err);
+  }
+
+  if (errors.length) {
+    return v.<span class="apidocCodeKeywordSpan">unique</span>(errors);
+  }
+}, {
+  parse: null,
+  format: null
+}),
+date: function(value, options) {
+  options = v.extend({}, options, {dateOnly: true});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validate" id="apidoc.element.validate.js.validate">
+        function <span class="apidocSignatureSpan">validate.js.</span>validate
+        <span class="apidocSignatureSpan">(attributes, constraints, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validate = function (attributes, constraints, options) {
+  options = v.extend({}, v.options, options);
+
+  var results = v.runValidations(attributes, constraints, options)
+    , attr
+    , validator;
+
+  for (attr in results) {
+    for (validator in results[attr]) {
+      if (v.isPromise(results[attr][validator])) {
+        throw new Error("Use validate.async if you want support for promises");
+      }
+    }
+  }
+  return validate.processValidationResults(results, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.waitForResults" id="apidoc.element.validate.js.waitForResults">
+        function <span class="apidocSignatureSpan">validate.js.</span>waitForResults
+        <span class="apidocSignatureSpan">(results)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">waitForResults = function (results) {
+  // Create a sequence of all the results starting with a resolved promise.
+  return results.reduce(function(memo, result) {
+    // If this result isn't a promise skip it in the sequence.
+    if (!v.isPromise(result.error)) {
+      return memo;
+    }
+
+    return memo.then(function() {
+      return result.error.then(function(error) {
+        result.error = error || null;
+      });
+    });
+  }, new v.Promise(function(r) { r(); })); // A resolved promise
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (options.cleanAttributes !== false) {
+  attributes = v.cleanAttributes(attributes, constraints);
+}
+
+var results = v.runValidations(attributes, constraints, options);
+
+return new v.Promise(function(resolve, reject) {
+  v.<span class="apidocCodeKeywordSpan">waitForResults</span>(results).then(function() {
+    var errors = v.processValidationResults(results, options);
+    if (errors) {
+      reject(new WrapErrors(errors, options, attributes, constraints));
+    } else {
+      resolve(attributes);
+    }
+  }, function(err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.warn" id="apidoc.element.validate.js.warn">
+        function <span class="apidocSignatureSpan">validate.js.</span>warn
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">warn = function (msg) {
+  if (typeof console !== "undefined" &amp;&amp; console.warn) {
+    console.warn("[validate.js] " + msg);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      define([], function () { return validate; });
+    }
+  }
+},
+
+warn: function(msg) {
+  if (typeof console !== "undefined" &amp;&amp; console.warn) {
+    console.<span class="apidocCodeKeywordSpan">warn</span>("[validate.js] " + msg);
+  }
+},
+
+error: function(msg) {
+  if (typeof console !== "undefined" &amp;&amp; console.error) {
+    console.error("[validate.js] " + msg);
+  }
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.validate.js.formatters" id="apidoc.module.validate.js.formatters">module validate.js.formatters</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.formatters.constraint" id="apidoc.element.validate.js.formatters.constraint">
+        function <span class="apidocSignatureSpan">validate.js.formatters.</span>constraint
+        <span class="apidocSignatureSpan">(errors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">constraint = function (errors) {
+  var attr;
+  errors = v.groupErrorsByAttribute(errors);
+  for (attr in errors) {
+    errors[attr] = errors[attr].map(function(result) {
+      return result.validator;
+    }).sort();
+  }
+  return errors;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.formatters.detailed" id="apidoc.element.validate.js.formatters.detailed">
+        function <span class="apidocSignatureSpan">validate.js.formatters.</span>detailed
+        <span class="apidocSignatureSpan">(errors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">detailed = function (errors) {return errors;}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.formatters.flat" id="apidoc.element.validate.js.formatters.flat">
+        function <span class="apidocSignatureSpan">validate.js.formatters.</span>flat
+        <span class="apidocSignatureSpan">(errors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">flat = function (errors) {
+  return errors
+    .map(function(error) { return error.error; })
+    .filter(function(value, index, self) {
+      return self.indexOf(value) === index;
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.formatters.grouped" id="apidoc.element.validate.js.formatters.grouped">
+        function <span class="apidocSignatureSpan">validate.js.formatters.</span>grouped
+        <span class="apidocSignatureSpan">(errors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">grouped = function (errors) {
+  var attr;
+
+  errors = v.groupErrorsByAttribute(errors);
+  for (attr in errors) {
+    errors[attr] = v.flattenErrorsToArray(errors[attr]);
+  }
+  return errors;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.validate.js.validators" id="apidoc.module.validate.js.validators">module validate.js.validators</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validators.date" id="apidoc.element.validate.js.validators.date">
+        function <span class="apidocSignatureSpan">validate.js.validators.</span>date
+        <span class="apidocSignatureSpan">(value, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">date = function (value, options) {
+  options = v.extend({}, options, {dateOnly: true});
+  return v.validators.datetime.call(v.validators.datetime, value, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validators.datetime" id="apidoc.element.validate.js.validators.datetime">
+        function <span class="apidocSignatureSpan">validate.js.validators.</span>datetime
+        <span class="apidocSignatureSpan">(value, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">datetime = function (value, options) {
+  if (!v.isFunction(this.parse) || !v.isFunction(this.format)) {
+    throw new Error("Both the parse and format functions needs to be set to use the datetime/date validator");
+  }
+
+  // Empty values are fine
+  if (!v.isDefined(value)) {
+    return;
+  }
+
+  options = v.extend({}, this.options, options);
+
+  var err
+    , errors = []
+    , earliest = options.earliest ? this.parse(options.earliest, options) : NaN
+    , latest = options.latest ? this.parse(options.latest, options) : NaN;
+
+  value = this.parse(value, options);
+
+  // 86400000 is the number of seconds in a day, this is used to remove
+  // the time from the date
+  if (isNaN(value) || options.dateOnly &amp;&amp; value % 86400000 !== 0) {
+    err = options.notValid ||
+      options.message ||
+      this.notValid ||
+      "must be a valid date";
+    return v.format(err, {value: arguments[0]});
+  }
+
+  if (!isNaN(earliest) &amp;&amp; value &lt; earliest) {
+    err = options.tooEarly ||
+      options.message ||
+      this.tooEarly ||
+      "must be no earlier than %{date}";
+    err = v.format(err, {
+      value: this.format(value, options),
+      date: this.format(earliest, options)
+    });
+    errors.push(err);
+  }
+
+  if (!isNaN(latest) &amp;&amp; value &gt; latest) {
+    err = options.tooLate ||
+      options.message ||
+      this.tooLate ||
+      "must be no later than %{date}";
+    err = v.format(err, {
+      date: this.format(latest, options),
+      value: this.format(value, options)
+    });
+    errors.push(err);
+  }
+
+  if (errors.length) {
+    return v.unique(errors);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validators.email" id="apidoc.element.validate.js.validators.email">
+        function <span class="apidocSignatureSpan">validate.js.validators.</span>email
+        <span class="apidocSignatureSpan">(value, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">email = function (value, options) {
+  options = v.extend({}, this.options, options);
+  var message = options.message || this.message || "is not a valid email";
+  // Empty values are fine
+  if (!v.isDefined(value)) {
+    return;
+  }
+  if (!v.isString(value)) {
+    return message;
+  }
+  if (!this.PATTERN.exec(value)) {
+    return message;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validators.equality" id="apidoc.element.validate.js.validators.equality">
+        function <span class="apidocSignatureSpan">validate.js.validators.</span>equality
+        <span class="apidocSignatureSpan">(value, options, attribute, attributes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">equality = function (value, options, attribute, attributes) {
+  if (!v.isDefined(value)) {
+    return;
+  }
+
+  if (v.isString(options)) {
+    options = {attribute: options};
+  }
+  options = v.extend({}, this.options, options);
+  var message = options.message ||
+    this.message ||
+    "is not equal to %{attribute}";
+
+  if (v.isEmpty(options.attribute) || !v.isString(options.attribute)) {
+    throw new Error("The attribute must be a non empty string");
+  }
+
+  var otherValue = v.getDeepObjectValue(attributes, options.attribute)
+    , comparator = options.comparator || function(v1, v2) {
+      return v1 === v2;
+    };
+
+  if (!comparator(value, otherValue, options, attribute, attributes)) {
+    return v.format(message, {attribute: v.prettify(options.attribute)});
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validators.exclusion" id="apidoc.element.validate.js.validators.exclusion">
+        function <span class="apidocSignatureSpan">validate.js.validators.</span>exclusion
+        <span class="apidocSignatureSpan">(value, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exclusion = function (value, options) {
+  // Empty values are fine
+  if (!v.isDefined(value)) {
+    return;
+  }
+  if (v.isArray(options)) {
+    options = {within: options};
+  }
+  options = v.extend({}, this.options, options);
+  if (!v.contains(options.within, value)) {
+    return;
+  }
+  var message = options.message || this.message || "^%{value} is restricted";
+  return v.format(message, {value: value});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validators.format" id="apidoc.element.validate.js.validators.format">
+        function <span class="apidocSignatureSpan">validate.js.validators.</span>format
+        <span class="apidocSignatureSpan">(value, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">format = function (value, options) {
+  if (v.isString(options) || (options instanceof RegExp)) {
+    options = {pattern: options};
+  }
+
+  options = v.extend({}, this.options, options);
+
+  var message = options.message || this.message || "is invalid"
+    , pattern = options.pattern
+    , match;
+
+  // Empty values are allowed
+  if (!v.isDefined(value)) {
+    return;
+  }
+  if (!v.isString(value)) {
+    return message;
+  }
+
+  if (v.isString(pattern)) {
+    pattern = new RegExp(options.pattern, options.flags);
+  }
+  match = pattern.exec(value);
+  if (!match || match[0].length != value.length) {
+    return message;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// The toString function will allow it to be coerced into a string
+version: {
+  major: 0,
+  minor: 11,
+  patch: 1,
+  metadata: null,
+  toString: function() {
+    var version = v.<span class="apidocCodeKeywordSpan">format</span>("%{major}.%{minor}.%{patch}", v.version);
+    if (!v.isEmpty(v.version.metadata)) {
+      version += "+" + v.version.metadata;
+    }
+    return version;
+  }
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validators.inclusion" id="apidoc.element.validate.js.validators.inclusion">
+        function <span class="apidocSignatureSpan">validate.js.validators.</span>inclusion
+        <span class="apidocSignatureSpan">(value, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inclusion = function (value, options) {
+  // Empty values are fine
+  if (!v.isDefined(value)) {
+    return;
+  }
+  if (v.isArray(options)) {
+    options = {within: options};
+  }
+  options = v.extend({}, this.options, options);
+  if (v.contains(options.within, value)) {
+    return;
+  }
+  var message = options.message ||
+    this.message ||
+    "^%{value} is not included in the list";
+  return v.format(message, {value: value});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validators.length" id="apidoc.element.validate.js.validators.length">
+        function <span class="apidocSignatureSpan">validate.js.validators.</span>length
+        <span class="apidocSignatureSpan">(value, options, attribute)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">length = function (value, options, attribute) {
+  // Empty values are allowed
+  if (!v.isDefined(value)) {
+    return;
+  }
+
+  options = v.extend({}, this.options, options);
+
+  var is = options.is
+    , maximum = options.maximum
+    , minimum = options.minimum
+    , tokenizer = options.tokenizer || function(val) { return val; }
+    , err
+    , errors = [];
+
+  value = tokenizer(value);
+  var length = value.length;
+  if(!v.isNumber(length)) {
+    v.error(v.format("Attribute %{attr} has a non numeric value for `length`", {attr: attribute}));
+    return options.message || this.notValid || "has an incorrect length";
+  }
+
+  // Is checks
+  if (v.isNumber(is) &amp;&amp; length !== is) {
+    err = options.wrongLength ||
+      this.wrongLength ||
+      "is the wrong length (should be %{count} characters)";
+    errors.push(v.format(err, {count: is}));
+  }
+
+  if (v.isNumber(minimum) &amp;&amp; length &lt; minimum) {
+    err = options.tooShort ||
+      this.tooShort ||
+      "is too short (minimum is %{count} characters)";
+    errors.push(v.format(err, {count: minimum}));
+  }
+
+  if (v.isNumber(maximum) &amp;&amp; length &gt; maximum) {
+    err = options.tooLong ||
+      this.tooLong ||
+      "is too long (maximum is %{count} characters)";
+    errors.push(v.format(err, {count: maximum}));
+  }
+
+  if (errors.length &gt; 0) {
+    return options.message || errors;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validators.numericality" id="apidoc.element.validate.js.validators.numericality">
+        function <span class="apidocSignatureSpan">validate.js.validators.</span>numericality
+        <span class="apidocSignatureSpan">(value, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">numericality = function (value, options) {
+  // Empty values are fine
+  if (!v.isDefined(value)) {
+    return;
+  }
+
+  options = v.extend({}, this.options, options);
+
+  var errors = []
+    , name
+    , count
+    , checks = {
+        greaterThan:          function(v, c) { return v &gt; c; },
+        greaterThanOrEqualTo: function(v, c) { return v &gt;= c; },
+        equalTo:              function(v, c) { return v === c; },
+        lessThan:             function(v, c) { return v &lt; c; },
+        lessThanOrEqualTo:    function(v, c) { return v &lt;= c; },
+        divisibleBy:          function(v, c) { return v % c === 0; }
+      };
+
+  // Strict will check that it is a valid looking number
+  if (v.isString(value) &amp;&amp; options.strict) {
+    var pattern = "^(0|[1-9]\\d*)";
+    if (!options.onlyInteger) {
+      pattern += "(\\.\\d+)?";
+    }
+    pattern += "$";
+
+    if (!(new RegExp(pattern).test(value))) {
+      return options.message ||
+        options.notValid ||
+        this.notValid ||
+        this.message ||
+        "must be a valid number";
+    }
+  }
+
+  // Coerce the value to a number unless we're being strict.
+  if (options.noStrings !== true &amp;&amp; v.isString(value) &amp;&amp; !v.isEmpty(value)) {
+    value = +value;
+  }
+
+  // If it's not a number we shouldn't continue since it will compare it.
+  if (!v.isNumber(value)) {
+    return options.message ||
+      options.notValid ||
+      this.notValid ||
+      this.message ||
+      "is not a number";
+  }
+
+  // Same logic as above, sort of. Don't bother with comparisons if this
+  // doesn't pass.
+  if (options.onlyInteger &amp;&amp; !v.isInteger(value)) {
+    return options.message ||
+      options.notInteger ||
+      this.notInteger ||
+      this.message ||
+      "must be an integer";
+  }
+
+  for (name in checks) {
+    count = options[name];
+    if (v.isNumber(count) &amp;&amp; !checks[name](value, count)) {
+      // This picks the default message if specified
+      // For example the greaterThan check uses the message from
+      // this.notGreaterThan so we capitalize the name and prepend "not"
+      var key = "not" + v.capitalize(name);
+      var msg = options[key] ||
+        this[key] ||
+        this.message ||
+        "must be %{type} %{count}";
+
+      errors.push(v.format(msg, {
+        count: count,
+        type: v.prettify(name)
+      }));
+    }
+  }
+
+  if (options.odd &amp;&amp; value % 2 !== 1) {
+    errors.push(options.notOdd ||
+        this.notOdd ||
+        this.message ||
+        "must be odd");
+  }
+  if (options.even &amp;&amp; value % 2 !== 0) {
+    errors.push(options.notEven ||
+        this.notEven ||
+        this.message ||
+        "must be even");
+  }
+
+  if (errors.length) {
+    return options.message || errors;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validators.presence" id="apidoc.element.validate.js.validators.presence">
+        function <span class="apidocSignatureSpan">validate.js.validators.</span>presence
+        <span class="apidocSignatureSpan">(value, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">presence = function (value, options) {
+  options = v.extend({}, this.options, options);
+  if (options.allowEmpty ? !v.isDefined(value) : v.isEmpty(value)) {
+    return options.message || this.message || "can't be blank";
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.validators.url" id="apidoc.element.validate.js.validators.url">
+        function <span class="apidocSignatureSpan">validate.js.validators.</span>url
+        <span class="apidocSignatureSpan">(value, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">url = function (value, options) {
+  if (!v.isDefined(value)) {
+    return;
+  }
+
+  options = v.extend({}, this.options, options);
+
+  var message = options.message || this.message || "is not a valid url"
+    , schemes = options.schemes || this.schemes || ['http', 'https']
+    , allowLocal = options.allowLocal || this.allowLocal || false;
+
+  if (!v.isString(value)) {
+    return message;
+  }
+
+  // https://gist.github.com/dperini/729294
+  var regex =
+    "^" +
+    // protocol identifier
+    "(?:(?:" + schemes.join("|") + ")://)" +
+    // user:pass authentication
+    "(?:\\S+(?::\\S*)?@)?" +
+    "(?:";
+
+  var tld = "(?:\\.(?:[a-z\\u00a1-\\uffff]{2,}))";
+
+  if (allowLocal) {
+    tld += "?";
+  } else {
+    regex +=
+      // IP address exclusion
+      // private &amp; local networks
+      "(?!(?:10|127)(?:\\.\\d{1,3}){3})" +
+      "(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})" +
+      "(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})";
+  }
+
+  regex +=
+      // IP address dotted notation octets
+      // excludes loopback network 0.0.0.0
+      // excludes reserved space &gt;= 224.0.0.0
+      // excludes network &amp; broacast addresses
+      // (first &amp; last IP address of each class)
+      "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])" +
+      "(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}" +
+      "(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))" +
+    "|" +
+      // host name
+      "(?:(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)" +
+      // domain name
+      "(?:\\.(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)*" +
+      tld +
+    ")" +
+    // port number
+    "(?::\\d{2,5})?" +
+    // resource path
+    "(?:[/?#]\\S*)?" +
+  "$";
+
+  var PATTERN = new RegExp(regex, 'i');
+  if (!PATTERN.exec(value)) {
+    return message;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.validate.js.version" id="apidoc.module.validate.js.version">module validate.js.version</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.validate.js.version.toString" id="apidoc.element.validate.js.version.toString">
+        function <span class="apidocSignatureSpan">validate.js.version.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  var version = v.format("%{major}.%{minor}.%{patch}", v.version);
+  if (!v.isEmpty(v.version.metadata)) {
+    version += "+" + v.version.metadata;
+  }
+  return version;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+if (v.isArray(str)) {
+  return str.map(function(s) { return v.prettify(s); }).join(", ");
+}
+
+if (v.isObject(str)) {
+  return str.<span class="apidocCodeKeywordSpan">toString</span>();
+}
+
+// Ensure the string is actually a string
+str = "" + str;
+
+return str
+  // Splits keys separated by periods
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
