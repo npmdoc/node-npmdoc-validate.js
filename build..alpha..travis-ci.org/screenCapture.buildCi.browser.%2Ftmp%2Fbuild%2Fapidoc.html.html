@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://validatejs.org"
-
-    >validate.js (v0.11.1)</a>
+    <a href="http://validatejs.org">validate.js (v0.11.1)</a>
 </h1>
 <h4>Declarative validations for JavaScript</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.validate.js">module validate.js</a><ol>
 
@@ -1110,7 +1103,7 @@
   for (attr in results) {
     for (validator in results[attr]) {
       if (v.isPromise(results[attr][validator])) {
-        throw new Error(&#x22;Use validate.async if you want support for promises&#x22;);
+        throw new Error("Use validate.async if you want support for promises");
       }
     }
   }
@@ -1207,12 +1200,12 @@ return new v.<span class="apidocCodeKeywordSpan">Promise</span>(function(resolve
       return;
     }
 
-    if (error[0] === &#x27;^&#x27;) {
+    if (error[0] === '^') {
       error = error.slice(1);
     } else if (options.fullMessages !== false) {
-      error = v.<span class="apidocCodeKeywordSpan">capitalize</span>(v.prettify(errorInfo.attribute)) + &#x22; &#x22; + error;
+      error = v.<span class="apidocCodeKeywordSpan">capitalize</span>(v.prettify(errorInfo.attribute)) + " " + error;
     }
-    error = error.replace(/\\\^/g, &#x22;^&#x22;);
+    error = error.replace(/\\\^/g, "^");
     error = v.format(error, {value: v.stringifyValue(errorInfo.value)});
     ret.push(v.extend({}, errorInfo, {error: error}));
   });
@@ -1326,18 +1319,18 @@ return new v.Promise(function(resolve, reject) {
 
   options = options || {};
 
-  inputs = form.querySelectorAll(&#x22;input[name], textarea[name]&#x22;);
-  for (i = 0; i &#x3c; inputs.length; ++i) {
+  inputs = form.querySelectorAll("input[name], textarea[name]");
+  for (i = 0; i &lt; inputs.length; ++i) {
     input = inputs.item(i);
 
-    if (v.isDefined(input.getAttribute(&#x22;data-ignored&#x22;))) {
+    if (v.isDefined(input.getAttribute("data-ignored"))) {
       continue;
     }
 
     value = v.sanitizeFormValue(input.value, options);
-    if (input.type === &#x22;number&#x22;) {
+    if (input.type === "number") {
       value = value ? +value : null;
-    } else if (input.type === &#x22;checkbox&#x22;) {
+    } else if (input.type === "checkbox") {
       if (input.attributes.value) {
         if (!input.checked) {
           value = values[input.name] || null;
@@ -1345,7 +1338,7 @@ return new v.Promise(function(resolve, reject) {
       } else {
         value = input.checked;
       }
-    } else if (input.type === &#x22;radio&#x22;) {
+    } else if (input.type === "radio") {
       if (!input.checked) {
         value = values[input.name] || null;
       }
@@ -1353,8 +1346,8 @@ return new v.Promise(function(resolve, reject) {
     values[input.name] = value;
   }
 
-  inputs = form.querySelectorAll(&#x22;select[name]&#x22;);
-  for (i = 0; i &#x3c; inputs.length; ++i) {
+  inputs = form.querySelectorAll("select[name]");
+  for (i = 0; i &lt; inputs.length; ++i) {
     input = inputs.item(i);
     if (input.multiple) {
       value = [];
@@ -1422,7 +1415,7 @@ for (attr in constraints) {
   }
   var message = options.message ||
     this.message ||
-    &#x22;^%{value} is not included in the list&#x22;;
+    "^%{value} is not included in the list";
   return v.format(message, {value: value});
 },
 ...</pre></li>
@@ -1454,12 +1447,12 @@ for (attr in constraints) {
       return;
     }
 
-    if (error[0] === &#x27;^&#x27;) {
+    if (error[0] === '^') {
       error = error.slice(1);
     } else if (options.fullMessages !== false) {
-      error = v.capitalize(v.prettify(errorInfo.attribute)) + &#x22; &#x22; + error;
+      error = v.capitalize(v.prettify(errorInfo.attribute)) + " " + error;
     }
-    error = error.replace(/\\\^/g, &#x22;^&#x22;);
+    error = error.replace(/\\\^/g, "^");
     error = v.format(error, {value: v.stringifyValue(errorInfo.value)});
     ret.push(v.extend({}, errorInfo, {error: error}));
   });
@@ -1475,12 +1468,12 @@ errors = v.pruneEmptyErrors(errors, options);
 errors = v.expandMultipleErrors(errors, options);
 errors = v.<span class="apidocCodeKeywordSpan">convertErrorMessages</span>(errors, options);
 
-var format = options.format || &#x22;grouped&#x22;;
+var format = options.format || "grouped";
 
-if (typeof v.formatters[format] === &#x27;function&#x27;) {
+if (typeof v.formatters[format] === 'function') {
   errors = v.formatters[format](errors);
 } else {
-  throw new Error(v.format(&#x22;Unknown format %{format}&#x22;, options));
+  throw new Error(v.format("Unknown format %{format}", options));
 ...</pre></li>
     </ul>
 
@@ -1494,25 +1487,25 @@ if (typeof v.formatters[format] === &#x27;function&#x27;) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">error = function (msg) {
-  if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.error) {
-    console.error(&#x22;[validate.js] &#x22; + msg);
+  if (typeof console !== "undefined" &amp;&amp; console.error) {
+    console.error("[validate.js] " + msg);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.warn) {
-      console.warn(&#x22;[validate.js] &#x22; + msg);
+    if (typeof console !== "undefined" &amp;&amp; console.warn) {
+      console.warn("[validate.js] " + msg);
     }
   },
 
   error: function(msg) {
-    if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.error) {
-      console.<span class="apidocCodeKeywordSpan">error</span>(&#x22;[validate.js] &#x22; + msg);
+    if (typeof console !== "undefined" &amp;&amp; console.error) {
+      console.<span class="apidocCodeKeywordSpan">error</span>("[validate.js] " + msg);
     }
   }
 });
 
 validate.validators = {
-  // Presence validates that the value isn&#x27;t empty
+  // Presence validates that the value isn't empty
   presence: function(value, options) {
 ...</pre></li>
     </ul>
@@ -1551,9 +1544,9 @@ errors = v.pruneEmptyErrors(errors, options);
 errors = v.<span class="apidocCodeKeywordSpan">expandMultipleErrors</span>(errors, options);
 errors = v.convertErrorMessages(errors, options);
 
-var format = options.format || &#x22;grouped&#x22;;
+var format = options.format || "grouped";
 
-if (typeof v.formatters[format] === &#x27;function&#x27;) {
+if (typeof v.formatters[format] === 'function') {
   errors = v.formatters[format](errors);
 } else {
 ...</pre></li>
@@ -1570,13 +1563,13 @@ if (typeof v.formatters[format] === &#x27;function&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">exposeModule = function (validate, root, exports, module, define) {
   if (exports) {
-    if (module &#x26;&#x26; module.exports) {
+    if (module &amp;&amp; module.exports) {
       exports = module.exports = validate;
     }
     exports.validate = validate;
   } else {
     root.validate = validate;
-    if (validate.isFunction(define) &#x26;&#x26; define.amd) {
+    if (validate.isFunction(define) &amp;&amp; define.amd) {
       define([], function () { return validate; });
     }
   }
@@ -1591,9 +1584,9 @@ if (typeof v.formatters[format] === &#x27;function&#x27;) {
 
   validate.<span class="apidocCodeKeywordSpan">exposeModule</span>(validate, this, exports, module, define);
 }).call(this,
-typeof exports !== &#x27;undefined&#x27; ? /* istanbul ignore next */ exports : null,
-typeof module !== &#x27;undefined&#x27; ? /* istanbul ignore next */ module : null,
-typeof define !== &#x27;undefined&#x27; ? /* istanbul ignore next */ define : null);
+typeof exports !== 'undefined' ? /* istanbul ignore next */ exports : null,
+typeof module !== 'undefined' ? /* istanbul ignore next */ module : null,
+typeof define !== 'undefined' ? /* istanbul ignore next */ define : null);
 ...</pre></li>
     </ul>
 
@@ -1682,26 +1675,26 @@ constraint: function(errors) {
     return undefined;
   }
 
-  var key = &#x22;&#x22;
+  var key = ""
     , i
     , escape = false;
 
-  for (i = 0; i &#x3c; keypath.length; ++i) {
+  for (i = 0; i &lt; keypath.length; ++i) {
     switch (keypath[i]) {
-      case &#x27;.&#x27;:
+      case '.':
         if (escape) {
           escape = false;
-          key += &#x27;.&#x27;;
+          key += '.';
         } else {
           object = callback(object, key, false);
-          key = &#x22;&#x22;;
+          key = "";
         }
         break;
 
-      case &#x27;\\&#x27;:
+      case '\\':
         if (escape) {
           escape = false;
-          key += &#x27;\\&#x27;;
+          key += '\\';
         } else {
           escape = true;
         }
@@ -1749,8 +1742,8 @@ getDeepObjectValue: function(obj, keypath) {
     return str;
   }
   return str.replace(v.format.FORMAT_REGEXP, function(m0, m1, m2) {
-    if (m1 === &#x27;%&#x27;) {
-      return &#x22;%{&#x22; + m2 + &#x22;}&#x22;;
+    if (m1 === '%') {
+      return "%{" + m2 + "}";
     } else {
       return String(vals[m2]);
     }
@@ -1764,9 +1757,9 @@ version: {
   patch: 1,
   metadata: null,
   toString: function() {
-    var version = v.<span class="apidocCodeKeywordSpan">format</span>(&#x22;%{major}.%{minor}.%{patch}&#x22;, v.version);
+    var version = v.<span class="apidocCodeKeywordSpan">format</span>("%{major}.%{minor}.%{patch}", v.version);
     if (!v.isEmpty(v.version.metadata)) {
-      version += &#x22;+&#x22; + v.version.metadata;
+      version += "+" + v.version.metadata;
     }
     return version;
   }
@@ -1862,7 +1855,7 @@ constraint: function(errors) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isArray = function (value) {
-  return {}.toString.call(value) === &#x27;[object Array]&#x27;;
+  return {}.toString.call(value) === '[object Array]';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -1876,7 +1869,7 @@ if (v.<span class="apidocCodeKeywordSpan">isArray</span>(value)) {
   return value.length === 0;
 }
 
-// Dates have no attributes but aren&#x27;t empty
+// Dates have no attributes but aren't empty
 if (v.isDate(value)) {
   return false;
 }
@@ -1893,7 +1886,7 @@ if (v.isDate(value)) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isBoolean = function (value) {
-  return typeof value === &#x27;boolean&#x27;;
+  return typeof value === 'boolean';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1917,7 +1910,7 @@ if (v.isArray(value)) {
   return value.length === 0;
 }
 
-// Dates have no attributes but aren&#x27;t empty
+// Dates have no attributes but aren't empty
 if (v.<span class="apidocCodeKeywordSpan">isDate</span>(value)) {
   return false;
 }
@@ -1939,7 +1932,7 @@ if (v.isObject(value)) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isDefined = function (obj) {
-  return obj !== null &#x26;&#x26; obj !== undefined;
+  return obj !== null &amp;&amp; obj !== undefined;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 }
@@ -1978,20 +1971,20 @@ if (v.isFunction(value)) {
     return false;
   }
 
-  if (v.isObject(document) &#x26;&#x26; o === document) {
+  if (v.isObject(document) &amp;&amp; o === document) {
     return true;
   }
 
   // http://stackoverflow.com/a/384380/699304
 <span class="apidocCodeCommentSpan">  /* istanbul ignore else */
-</span>  if (typeof HTMLElement === &#x22;object&#x22;) {
+</span>  if (typeof HTMLElement === "object") {
     return o instanceof HTMLElement;
   } else {
-    return o &#x26;&#x26;
-      typeof o === &#x22;object&#x22; &#x26;&#x26;
-      o !== null &#x26;&#x26;
-      o.nodeType === 1 &#x26;&#x26;
-      typeof o.nodeName === &#x22;string&#x22;;
+    return o &amp;&amp;
+      typeof o === "object" &amp;&amp;
+      o !== null &amp;&amp;
+      o.nodeType === 1 &amp;&amp;
+      typeof o.nodeName === "string";
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -2045,7 +2038,7 @@ for (attr in constraints) {
     return value.length === 0;
   }
 
-  // Dates have no attributes but aren&#x27;t empty
+  // Dates have no attributes but aren't empty
   if (v.isDate(value)) {
     return false;
   }
@@ -2067,9 +2060,9 @@ version: {
   patch: 1,
   metadata: null,
   toString: function() {
-    var version = v.format(&#x22;%{major}.%{minor}.%{patch}&#x22;, v.version);
+    var version = v.format("%{major}.%{minor}.%{patch}", v.version);
     if (!v.<span class="apidocCodeKeywordSpan">isEmpty</span>(v.version.metadata)) {
-      version += &#x22;+&#x22; + v.version.metadata;
+      version += "+" + v.version.metadata;
     }
     return version;
   }
@@ -2089,21 +2082,21 @@ version: {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isFunction = function (value) {
-  return typeof value === &#x27;function&#x27;;
+  return typeof value === 'function';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 isDefined: function(obj) {
-  return obj !== null &#x26;&#x26; obj !== undefined;
+  return obj !== null &amp;&amp; obj !== undefined;
 },
 
 // Checks if the given argument is a promise. Anything with a `then`
 // function is considered a promise.
 isPromise: function(p) {
-  return !!p &#x26;&#x26; v.<span class="apidocCodeKeywordSpan">isFunction</span>(p.then);
+  return !!p &amp;&amp; v.<span class="apidocCodeKeywordSpan">isFunction</span>(p.then);
 },
 
 isJqueryElement: function(o) {
-  return o &#x26;&#x26; v.isString(o.jquery);
+  return o &amp;&amp; v.isString(o.jquery);
 },
 
 isDomElement: function(o) {
@@ -2120,7 +2113,7 @@ isDomElement: function(o) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isHash = function (value) {
-  return v.isObject(value) &#x26;&#x26; !v.isArray(value) &#x26;&#x26; !v.isFunction(value);
+  return v.isObject(value) &amp;&amp; !v.isArray(value) &amp;&amp; !v.isFunction(value);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2135,22 +2128,22 @@ isDomElement: function(o) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isInteger = function (value) {
-  return v.isNumber(value) &#x26;&#x26; value % 1 === 0;
+  return v.isNumber(value) &amp;&amp; value % 1 === 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
     this.notValid ||
     this.message ||
-    &#x22;is not a number&#x22;;
+    "is not a number";
 }
 
-// Same logic as above, sort of. Don&#x27;t bother with comparisons if this
-// doesn&#x27;t pass.
-if (options.onlyInteger &#x26;&#x26; !v.<span class="apidocCodeKeywordSpan">isInteger</span>(value)) {
+// Same logic as above, sort of. Don't bother with comparisons if this
+// doesn't pass.
+if (options.onlyInteger &amp;&amp; !v.<span class="apidocCodeKeywordSpan">isInteger</span>(value)) {
   return options.message ||
     options.notInteger ||
     this.notInteger ||
     this.message ||
-    &#x22;must be an integer&#x22;;
+    "must be an integer";
 }
 ...</pre></li>
     </ul>
@@ -2165,7 +2158,7 @@ if (options.onlyInteger &#x26;&#x26; !v.<span class="apidocCodeKeywordSpan">isIn
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isJqueryElement = function (o) {
-  return o &#x26;&#x26; v.isString(o.jquery);
+  return o &amp;&amp; v.isString(o.jquery);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   , validatorName
@@ -2196,22 +2189,22 @@ for (attr in constraints) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isNumber = function (value) {
-  return typeof value === &#x27;number&#x27; &#x26;&#x26; !isNaN(value);
+  return typeof value === 'number' &amp;&amp; !isNaN(value);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 isFunction: function(value) {
-  return typeof value === &#x27;function&#x27;;
+  return typeof value === 'function';
 },
 
 // A simple check to verify that the value is an integer. Uses `isNumber`
 // and a simple modulo check.
 isInteger: function(value) {
-  return v.<span class="apidocCodeKeywordSpan">isNumber</span>(value) &#x26;&#x26; value % 1 === 0;
+  return v.<span class="apidocCodeKeywordSpan">isNumber</span>(value) &amp;&amp; value % 1 === 0;
 },
 
 // Checks if the value is a boolean
 isBoolean: function(value) {
-  return typeof value === &#x27;boolean&#x27;;
+  return typeof value === 'boolean';
 },
 ...</pre></li>
     </ul>
@@ -2236,13 +2229,13 @@ if (!o.querySelectorAll || !o.querySelector) {
   return false;
 }
 
-if (v.<span class="apidocCodeKeywordSpan">isObject</span>(document) &#x26;&#x26; o === document) {
+if (v.<span class="apidocCodeKeywordSpan">isObject</span>(document) &amp;&amp; o === document) {
   return true;
 }
 
 // http://stackoverflow.com/a/384380/699304
 /* istanbul ignore else */
-if (typeof HTMLElement === &#x22;object&#x22;) {
+if (typeof HTMLElement === "object") {
   return o instanceof HTMLElement;
 ...</pre></li>
     </ul>
@@ -2257,7 +2250,7 @@ if (typeof HTMLElement === &#x22;object&#x22;) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isPromise = function (p) {
-  return !!p &#x26;&#x26; v.isFunction(p.then);
+  return !!p &amp;&amp; v.isFunction(p.then);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -2268,7 +2261,7 @@ if (typeof HTMLElement === &#x22;object&#x22;) {
   for (attr in results) {
     for (validator in results[attr]) {
       if (v.<span class="apidocCodeKeywordSpan">isPromise</span>(results[attr][validator])) {
-        throw new Error(&#x22;Use validate.async if you want support for promises&#x22;);
+        throw new Error("Use validate.async if you want support for promises");
       }
     }
   }
@@ -2287,17 +2280,17 @@ if (typeof HTMLElement === &#x22;object&#x22;) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isString = function (value) {
-  return typeof value === &#x27;string&#x27;;
+  return typeof value === 'string';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 // Checks if the given argument is a promise. Anything with a `then`
 // function is considered a promise.
 isPromise: function(p) {
-  return !!p &#x26;&#x26; v.isFunction(p.then);
+  return !!p &amp;&amp; v.isFunction(p.then);
 },
 
 isJqueryElement: function(o) {
-  return o &#x26;&#x26; v.<span class="apidocCodeKeywordSpan">isString</span>(o.jquery);
+  return o &amp;&amp; v.<span class="apidocCodeKeywordSpan">isString</span>(o.jquery);
 },
 
 isDomElement: function(o) {
@@ -2326,7 +2319,7 @@ isDomElement: function(o) {
   for (attr in results) {
     for (validator in results[attr]) {
       if (v.isPromise(results[attr][validator])) {
-        throw new Error(&#x22;Use validate.async if you want support for promises&#x22;);
+        throw new Error("Use validate.async if you want support for promises");
       }
     }
   }
@@ -2348,14 +2341,14 @@ isDomElement: function(o) {
   if (v.isNumber(str)) {
     // If there are more than 2 decimals round it to two
     if ((str * 100) % 1 === 0) {
-      return &#x22;&#x22; + str;
+      return "" + str;
     } else {
       return parseFloat(Math.round(str * 100) / 100).toFixed(2);
     }
   }
 
   if (v.isArray(str)) {
-    return str.map(function(s) { return v.prettify(s); }).join(&#x22;, &#x22;);
+    return str.map(function(s) { return v.prettify(s); }).join(", ");
   }
 
   if (v.isObject(str)) {
@@ -2363,30 +2356,30 @@ isDomElement: function(o) {
   }
 
   // Ensure the string is actually a string
-  str = &#x22;&#x22; + str;
+  str = "" + str;
 
   return str
     // Splits keys separated by periods
-    .replace(/([^\s])\.([^\s])/g, &#x27;$1 $2&#x27;)
+    .replace(/([^\s])\.([^\s])/g, '$1 $2')
     // Removes backslashes
-    .replace(/\\+/g, &#x27;&#x27;)
+    .replace(/\\+/g, '')
     // Replaces - and - with space
-    .replace(/[_-]/g, &#x27; &#x27;)
+    .replace(/[_-]/g, ' ')
     // Splits camel cased words
     .replace(/([a-z])([A-Z])/g, function(m0, m1, m2) {
-      return &#x22;&#x22; + m1 + &#x22; &#x22; + m2.toLowerCase();
+      return "" + m1 + " " + m2.toLowerCase();
     })
     .toLowerCase();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    return &#x22;&#x22; + str;
+    return "" + str;
   } else {
     return parseFloat(Math.round(str * 100) / 100).toFixed(2);
   }
 }
 
 if (v.isArray(str)) {
-  return str.map(function(s) { return v.<span class="apidocCodeKeywordSpan">prettify</span>(s); }).join(&#x22;, &#x22;);
+  return str.map(function(s) { return v.<span class="apidocCodeKeywordSpan">prettify</span>(s); }).join(", ");
 }
 
 if (v.isObject(str)) {
@@ -2411,12 +2404,12 @@ if (v.isObject(str)) {
   errors = v.expandMultipleErrors(errors, options);
   errors = v.convertErrorMessages(errors, options);
 
-  var format = options.format || &#x22;grouped&#x22;;
+  var format = options.format || "grouped";
 
-  if (typeof v.formatters[format] === &#x27;function&#x27;) {
+  if (typeof v.formatters[format] === 'function') {
     errors = v.formatters[format](errors);
   } else {
-    throw new Error(v.format(&#x22;Unknown format %{format}&#x22;, options));
+    throw new Error(v.format("Unknown format %{format}", options));
   }
 
   return v.isEmpty(errors) ? undefined : errors;
@@ -2425,7 +2418,7 @@ if (v.isObject(str)) {
   for (attr in results) {
     for (validator in results[attr]) {
       if (v.isPromise(results[attr][validator])) {
-        throw new Error(&#x22;Use validate.async if you want support for promises&#x22;);
+        throw new Error("Use validate.async if you want support for promises");
       }
     }
   }
@@ -2435,7 +2428,7 @@ if (v.isObject(str)) {
 var v = validate;
 
 // Copies over attributes from one or more sources to a single destination.
-// Very much similar to underscore&#x27;s extend.
+// Very much similar to underscore's extend.
 // The first argument is the target object and the remaining arguments will be
 ...</pre></li>
     </ul>
@@ -2466,9 +2459,9 @@ errors = v.<span class="apidocCodeKeywordSpan">pruneEmptyErrors</span>(errors, o
 errors = v.expandMultipleErrors(errors, options);
 errors = v.convertErrorMessages(errors, options);
 
-var format = options.format || &#x22;grouped&#x22;;
+var format = options.format || "grouped";
 
-if (typeof v.formatters[format] === &#x27;function&#x27;) {
+if (typeof v.formatters[format] === 'function') {
   errors = v.formatters[format](errors);
 ...</pre></li>
     </ul>
@@ -2484,7 +2477,7 @@ if (typeof v.formatters[format] === &#x27;function&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">result = function (value) {
   var args = [].slice.call(arguments, 1);
-  if (typeof value === &#x27;function&#x27;) {
+  if (typeof value === 'function') {
     value = value.apply(null, args);
   }
   return value;
@@ -2504,7 +2497,7 @@ if (typeof v.formatters[format] === &#x27;function&#x27;) {
 validator = v.validators[validatorName];
 
 if (!validator) {
-  error = v.format(&#x22;Unknown validator %{name}&#x22;, {name: validatorName});
+  error = v.format("Unknown validator %{name}", {name: validatorName});
   throw new Error(error);
 ...</pre></li>
     </ul>
@@ -2546,7 +2539,7 @@ if (!validator) {
       validator = v.validators[validatorName];
 
       if (!validator) {
-        error = v.format(&#x22;Unknown validator %{name}&#x22;, {name: validatorName});
+        error = v.format("Unknown validator %{name}", {name: validatorName});
         throw new Error(error);
       }
 
@@ -2594,7 +2587,7 @@ var results = v.<span class="apidocCodeKeywordSpan">runValidations</span>(attrib
 for (attr in results) {
   for (validator in results[attr]) {
     if (v.isPromise(results[attr][validator])) {
-      throw new Error(&#x22;Use validate.async if you want support for promises&#x22;);
+      throw new Error("Use validate.async if you want support for promises");
 ...</pre></li>
     </ul>
 
@@ -2608,27 +2601,27 @@ for (attr in results) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">sanitizeFormValue = function (value, options) {
-  if (options.trim &#x26;&#x26; v.isString(value)) {
+  if (options.trim &amp;&amp; v.isString(value)) {
     value = value.trim();
   }
 
-  if (options.nullify !== false &#x26;&#x26; value === &#x22;&#x22;) {
+  if (options.nullify !== false &amp;&amp; value === "") {
     return null;
   }
   return value;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-      for (i = 0; i &#x3c; inputs.length; ++i) {
+      for (i = 0; i &lt; inputs.length; ++i) {
 input = inputs.item(i);
 
-if (v.isDefined(input.getAttribute(&#x22;data-ignored&#x22;))) {
+if (v.isDefined(input.getAttribute("data-ignored"))) {
   continue;
 }
 
 value = v.<span class="apidocCodeKeywordSpan">sanitizeFormValue</span>(input.value, options);
-if (input.type === &#x22;number&#x22;) {
+if (input.type === "number") {
   value = value ? +value : null;
-} else if (input.type === &#x22;checkbox&#x22;) {
+} else if (input.type === "checkbox") {
   if (input.attributes.value) {
     if (!input.checked) {
       value = values[input.name] || null;
@@ -2647,7 +2640,7 @@ if (input.type === &#x22;number&#x22;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">single = function (value, constraints, options) {
   options = v.extend({}, v.single.options, options, {
-    format: &#x22;flat&#x22;,
+    format: "flat",
     fullMessages: false
   });
   return v({single: value}, {single: constraints}, options);
@@ -2669,12 +2662,12 @@ if (input.type === &#x22;number&#x22;) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-    if (error[0] === &#x27;^&#x27;) {
+    if (error[0] === '^') {
       error = error.slice(1);
     } else if (options.fullMessages !== false) {
-      error = v.capitalize(v.prettify(errorInfo.attribute)) + &#x22; &#x22; + error;
+      error = v.capitalize(v.prettify(errorInfo.attribute)) + " " + error;
     }
-    error = error.replace(/\\\^/g, &#x22;^&#x22;);
+    error = error.replace(/\\\^/g, "^");
     error = v.format(error, {value: v.<span class="apidocCodeKeywordSpan">stringifyValue</span>(errorInfo.value)});
     ret.push(v.extend({}, errorInfo, {error: error}));
   });
@@ -2682,7 +2675,7 @@ if (input.type === &#x22;number&#x22;) {
 },
 
 // In:
-// [{attribute: &#x22;&#x3c;attributeName&#x3e;&#x22;, ...}]
+// [{attribute: "&lt;attributeName&gt;", ...}]
 ...</pre></li>
     </ul>
 
@@ -2741,7 +2734,7 @@ date: function(value, options) {
   for (attr in results) {
     for (validator in results[attr]) {
       if (v.isPromise(results[attr][validator])) {
-        throw new Error(&#x22;Use validate.async if you want support for promises&#x22;);
+        throw new Error("Use validate.async if you want support for promises");
       }
     }
   }
@@ -2762,7 +2755,7 @@ date: function(value, options) {
     <li>description and source-code<pre class="apidocCodePre">waitForResults = function (results) {
   // Create a sequence of all the results starting with a resolved promise.
   return results.reduce(function(memo, result) {
-    // If this result isn&#x27;t a promise skip it in the sequence.
+    // If this result isn't a promise skip it in the sequence.
     if (!v.isPromise(result.error)) {
       return memo;
     }
@@ -2803,8 +2796,8 @@ return new v.Promise(function(resolve, reject) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">warn = function (msg) {
-  if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.warn) {
-    console.warn(&#x22;[validate.js] &#x22; + msg);
+  if (typeof console !== "undefined" &amp;&amp; console.warn) {
+    console.warn("[validate.js] " + msg);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -2814,14 +2807,14 @@ return new v.Promise(function(resolve, reject) {
 },
 
 warn: function(msg) {
-  if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.warn) {
-    console.<span class="apidocCodeKeywordSpan">warn</span>(&#x22;[validate.js] &#x22; + msg);
+  if (typeof console !== "undefined" &amp;&amp; console.warn) {
+    console.<span class="apidocCodeKeywordSpan">warn</span>("[validate.js] " + msg);
   }
 },
 
 error: function(msg) {
-  if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.error) {
-    console.error(&#x22;[validate.js] &#x22; + msg);
+  if (typeof console !== "undefined" &amp;&amp; console.error) {
+    console.error("[validate.js] " + msg);
   }
 ...</pre></li>
     </ul>
@@ -2944,7 +2937,7 @@ error: function(msg) {
   for (attr in results) {
     for (validator in results[attr]) {
       if (v.isPromise(results[attr][validator])) {
-        throw new Error(&#x22;Use validate.async if you want support for promises&#x22;);
+        throw new Error("Use validate.async if you want support for promises");
       }
     }
   }
@@ -3041,12 +3034,12 @@ return new v.<span class="apidocCodeKeywordSpan">Promise</span>(function(resolve
       return;
     }
 
-    if (error[0] === &#x27;^&#x27;) {
+    if (error[0] === '^') {
       error = error.slice(1);
     } else if (options.fullMessages !== false) {
-      error = v.<span class="apidocCodeKeywordSpan">capitalize</span>(v.prettify(errorInfo.attribute)) + &#x22; &#x22; + error;
+      error = v.<span class="apidocCodeKeywordSpan">capitalize</span>(v.prettify(errorInfo.attribute)) + " " + error;
     }
-    error = error.replace(/\\\^/g, &#x22;^&#x22;);
+    error = error.replace(/\\\^/g, "^");
     error = v.format(error, {value: v.stringifyValue(errorInfo.value)});
     ret.push(v.extend({}, errorInfo, {error: error}));
   });
@@ -3160,18 +3153,18 @@ return new v.Promise(function(resolve, reject) {
 
   options = options || {};
 
-  inputs = form.querySelectorAll(&#x22;input[name], textarea[name]&#x22;);
-  for (i = 0; i &#x3c; inputs.length; ++i) {
+  inputs = form.querySelectorAll("input[name], textarea[name]");
+  for (i = 0; i &lt; inputs.length; ++i) {
     input = inputs.item(i);
 
-    if (v.isDefined(input.getAttribute(&#x22;data-ignored&#x22;))) {
+    if (v.isDefined(input.getAttribute("data-ignored"))) {
       continue;
     }
 
     value = v.sanitizeFormValue(input.value, options);
-    if (input.type === &#x22;number&#x22;) {
+    if (input.type === "number") {
       value = value ? +value : null;
-    } else if (input.type === &#x22;checkbox&#x22;) {
+    } else if (input.type === "checkbox") {
       if (input.attributes.value) {
         if (!input.checked) {
           value = values[input.name] || null;
@@ -3179,7 +3172,7 @@ return new v.Promise(function(resolve, reject) {
       } else {
         value = input.checked;
       }
-    } else if (input.type === &#x22;radio&#x22;) {
+    } else if (input.type === "radio") {
       if (!input.checked) {
         value = values[input.name] || null;
       }
@@ -3187,8 +3180,8 @@ return new v.Promise(function(resolve, reject) {
     values[input.name] = value;
   }
 
-  inputs = form.querySelectorAll(&#x22;select[name]&#x22;);
-  for (i = 0; i &#x3c; inputs.length; ++i) {
+  inputs = form.querySelectorAll("select[name]");
+  for (i = 0; i &lt; inputs.length; ++i) {
     input = inputs.item(i);
     if (input.multiple) {
       value = [];
@@ -3256,7 +3249,7 @@ for (attr in constraints) {
   }
   var message = options.message ||
     this.message ||
-    &#x22;^%{value} is not included in the list&#x22;;
+    "^%{value} is not included in the list";
   return v.format(message, {value: value});
 },
 ...</pre></li>
@@ -3288,12 +3281,12 @@ for (attr in constraints) {
       return;
     }
 
-    if (error[0] === &#x27;^&#x27;) {
+    if (error[0] === '^') {
       error = error.slice(1);
     } else if (options.fullMessages !== false) {
-      error = v.capitalize(v.prettify(errorInfo.attribute)) + &#x22; &#x22; + error;
+      error = v.capitalize(v.prettify(errorInfo.attribute)) + " " + error;
     }
-    error = error.replace(/\\\^/g, &#x22;^&#x22;);
+    error = error.replace(/\\\^/g, "^");
     error = v.format(error, {value: v.stringifyValue(errorInfo.value)});
     ret.push(v.extend({}, errorInfo, {error: error}));
   });
@@ -3309,12 +3302,12 @@ errors = v.pruneEmptyErrors(errors, options);
 errors = v.expandMultipleErrors(errors, options);
 errors = v.<span class="apidocCodeKeywordSpan">convertErrorMessages</span>(errors, options);
 
-var format = options.format || &#x22;grouped&#x22;;
+var format = options.format || "grouped";
 
-if (typeof v.formatters[format] === &#x27;function&#x27;) {
+if (typeof v.formatters[format] === 'function') {
   errors = v.formatters[format](errors);
 } else {
-  throw new Error(v.format(&#x22;Unknown format %{format}&#x22;, options));
+  throw new Error(v.format("Unknown format %{format}", options));
 ...</pre></li>
     </ul>
 
@@ -3328,25 +3321,25 @@ if (typeof v.formatters[format] === &#x27;function&#x27;) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">error = function (msg) {
-  if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.error) {
-    console.error(&#x22;[validate.js] &#x22; + msg);
+  if (typeof console !== "undefined" &amp;&amp; console.error) {
+    console.error("[validate.js] " + msg);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.warn) {
-      console.warn(&#x22;[validate.js] &#x22; + msg);
+    if (typeof console !== "undefined" &amp;&amp; console.warn) {
+      console.warn("[validate.js] " + msg);
     }
   },
 
   error: function(msg) {
-    if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.error) {
-      console.<span class="apidocCodeKeywordSpan">error</span>(&#x22;[validate.js] &#x22; + msg);
+    if (typeof console !== "undefined" &amp;&amp; console.error) {
+      console.<span class="apidocCodeKeywordSpan">error</span>("[validate.js] " + msg);
     }
   }
 });
 
 validate.validators = {
-  // Presence validates that the value isn&#x27;t empty
+  // Presence validates that the value isn't empty
   presence: function(value, options) {
 ...</pre></li>
     </ul>
@@ -3385,9 +3378,9 @@ errors = v.pruneEmptyErrors(errors, options);
 errors = v.<span class="apidocCodeKeywordSpan">expandMultipleErrors</span>(errors, options);
 errors = v.convertErrorMessages(errors, options);
 
-var format = options.format || &#x22;grouped&#x22;;
+var format = options.format || "grouped";
 
-if (typeof v.formatters[format] === &#x27;function&#x27;) {
+if (typeof v.formatters[format] === 'function') {
   errors = v.formatters[format](errors);
 } else {
 ...</pre></li>
@@ -3404,13 +3397,13 @@ if (typeof v.formatters[format] === &#x27;function&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">exposeModule = function (validate, root, exports, module, define) {
   if (exports) {
-    if (module &#x26;&#x26; module.exports) {
+    if (module &amp;&amp; module.exports) {
       exports = module.exports = validate;
     }
     exports.validate = validate;
   } else {
     root.validate = validate;
-    if (validate.isFunction(define) &#x26;&#x26; define.amd) {
+    if (validate.isFunction(define) &amp;&amp; define.amd) {
       define([], function () { return validate; });
     }
   }
@@ -3425,9 +3418,9 @@ if (typeof v.formatters[format] === &#x27;function&#x27;) {
 
   validate.<span class="apidocCodeKeywordSpan">exposeModule</span>(validate, this, exports, module, define);
 }).call(this,
-typeof exports !== &#x27;undefined&#x27; ? /* istanbul ignore next */ exports : null,
-typeof module !== &#x27;undefined&#x27; ? /* istanbul ignore next */ module : null,
-typeof define !== &#x27;undefined&#x27; ? /* istanbul ignore next */ define : null);
+typeof exports !== 'undefined' ? /* istanbul ignore next */ exports : null,
+typeof module !== 'undefined' ? /* istanbul ignore next */ module : null,
+typeof define !== 'undefined' ? /* istanbul ignore next */ define : null);
 ...</pre></li>
     </ul>
 
@@ -3516,26 +3509,26 @@ constraint: function(errors) {
     return undefined;
   }
 
-  var key = &#x22;&#x22;
+  var key = ""
     , i
     , escape = false;
 
-  for (i = 0; i &#x3c; keypath.length; ++i) {
+  for (i = 0; i &lt; keypath.length; ++i) {
     switch (keypath[i]) {
-      case &#x27;.&#x27;:
+      case '.':
         if (escape) {
           escape = false;
-          key += &#x27;.&#x27;;
+          key += '.';
         } else {
           object = callback(object, key, false);
-          key = &#x22;&#x22;;
+          key = "";
         }
         break;
 
-      case &#x27;\\&#x27;:
+      case '\\':
         if (escape) {
           escape = false;
-          key += &#x27;\\&#x27;;
+          key += '\\';
         } else {
           escape = true;
         }
@@ -3583,8 +3576,8 @@ getDeepObjectValue: function(obj, keypath) {
     return str;
   }
   return str.replace(v.format.FORMAT_REGEXP, function(m0, m1, m2) {
-    if (m1 === &#x27;%&#x27;) {
-      return &#x22;%{&#x22; + m2 + &#x22;}&#x22;;
+    if (m1 === '%') {
+      return "%{" + m2 + "}";
     } else {
       return String(vals[m2]);
     }
@@ -3598,9 +3591,9 @@ version: {
   patch: 1,
   metadata: null,
   toString: function() {
-    var version = v.<span class="apidocCodeKeywordSpan">format</span>(&#x22;%{major}.%{minor}.%{patch}&#x22;, v.version);
+    var version = v.<span class="apidocCodeKeywordSpan">format</span>("%{major}.%{minor}.%{patch}", v.version);
     if (!v.isEmpty(v.version.metadata)) {
-      version += &#x22;+&#x22; + v.version.metadata;
+      version += "+" + v.version.metadata;
     }
     return version;
   }
@@ -3696,7 +3689,7 @@ constraint: function(errors) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isArray = function (value) {
-  return {}.toString.call(value) === &#x27;[object Array]&#x27;;
+  return {}.toString.call(value) === '[object Array]';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -3710,7 +3703,7 @@ if (v.<span class="apidocCodeKeywordSpan">isArray</span>(value)) {
   return value.length === 0;
 }
 
-// Dates have no attributes but aren&#x27;t empty
+// Dates have no attributes but aren't empty
 if (v.isDate(value)) {
   return false;
 }
@@ -3727,7 +3720,7 @@ if (v.isDate(value)) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isBoolean = function (value) {
-  return typeof value === &#x27;boolean&#x27;;
+  return typeof value === 'boolean';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3751,7 +3744,7 @@ if (v.isArray(value)) {
   return value.length === 0;
 }
 
-// Dates have no attributes but aren&#x27;t empty
+// Dates have no attributes but aren't empty
 if (v.<span class="apidocCodeKeywordSpan">isDate</span>(value)) {
   return false;
 }
@@ -3773,7 +3766,7 @@ if (v.isObject(value)) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isDefined = function (obj) {
-  return obj !== null &#x26;&#x26; obj !== undefined;
+  return obj !== null &amp;&amp; obj !== undefined;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 }
@@ -3812,20 +3805,20 @@ if (v.isFunction(value)) {
     return false;
   }
 
-  if (v.isObject(document) &#x26;&#x26; o === document) {
+  if (v.isObject(document) &amp;&amp; o === document) {
     return true;
   }
 
   // http://stackoverflow.com/a/384380/699304
 <span class="apidocCodeCommentSpan">  /* istanbul ignore else */
-</span>  if (typeof HTMLElement === &#x22;object&#x22;) {
+</span>  if (typeof HTMLElement === "object") {
     return o instanceof HTMLElement;
   } else {
-    return o &#x26;&#x26;
-      typeof o === &#x22;object&#x22; &#x26;&#x26;
-      o !== null &#x26;&#x26;
-      o.nodeType === 1 &#x26;&#x26;
-      typeof o.nodeName === &#x22;string&#x22;;
+    return o &amp;&amp;
+      typeof o === "object" &amp;&amp;
+      o !== null &amp;&amp;
+      o.nodeType === 1 &amp;&amp;
+      typeof o.nodeName === "string";
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -3879,7 +3872,7 @@ for (attr in constraints) {
     return value.length === 0;
   }
 
-  // Dates have no attributes but aren&#x27;t empty
+  // Dates have no attributes but aren't empty
   if (v.isDate(value)) {
     return false;
   }
@@ -3901,9 +3894,9 @@ version: {
   patch: 1,
   metadata: null,
   toString: function() {
-    var version = v.format(&#x22;%{major}.%{minor}.%{patch}&#x22;, v.version);
+    var version = v.format("%{major}.%{minor}.%{patch}", v.version);
     if (!v.<span class="apidocCodeKeywordSpan">isEmpty</span>(v.version.metadata)) {
-      version += &#x22;+&#x22; + v.version.metadata;
+      version += "+" + v.version.metadata;
     }
     return version;
   }
@@ -3923,21 +3916,21 @@ version: {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isFunction = function (value) {
-  return typeof value === &#x27;function&#x27;;
+  return typeof value === 'function';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 isDefined: function(obj) {
-  return obj !== null &#x26;&#x26; obj !== undefined;
+  return obj !== null &amp;&amp; obj !== undefined;
 },
 
 // Checks if the given argument is a promise. Anything with a `then`
 // function is considered a promise.
 isPromise: function(p) {
-  return !!p &#x26;&#x26; v.<span class="apidocCodeKeywordSpan">isFunction</span>(p.then);
+  return !!p &amp;&amp; v.<span class="apidocCodeKeywordSpan">isFunction</span>(p.then);
 },
 
 isJqueryElement: function(o) {
-  return o &#x26;&#x26; v.isString(o.jquery);
+  return o &amp;&amp; v.isString(o.jquery);
 },
 
 isDomElement: function(o) {
@@ -3954,7 +3947,7 @@ isDomElement: function(o) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isHash = function (value) {
-  return v.isObject(value) &#x26;&#x26; !v.isArray(value) &#x26;&#x26; !v.isFunction(value);
+  return v.isObject(value) &amp;&amp; !v.isArray(value) &amp;&amp; !v.isFunction(value);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -3969,22 +3962,22 @@ isDomElement: function(o) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isInteger = function (value) {
-  return v.isNumber(value) &#x26;&#x26; value % 1 === 0;
+  return v.isNumber(value) &amp;&amp; value % 1 === 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
     this.notValid ||
     this.message ||
-    &#x22;is not a number&#x22;;
+    "is not a number";
 }
 
-// Same logic as above, sort of. Don&#x27;t bother with comparisons if this
-// doesn&#x27;t pass.
-if (options.onlyInteger &#x26;&#x26; !v.<span class="apidocCodeKeywordSpan">isInteger</span>(value)) {
+// Same logic as above, sort of. Don't bother with comparisons if this
+// doesn't pass.
+if (options.onlyInteger &amp;&amp; !v.<span class="apidocCodeKeywordSpan">isInteger</span>(value)) {
   return options.message ||
     options.notInteger ||
     this.notInteger ||
     this.message ||
-    &#x22;must be an integer&#x22;;
+    "must be an integer";
 }
 ...</pre></li>
     </ul>
@@ -3999,7 +3992,7 @@ if (options.onlyInteger &#x26;&#x26; !v.<span class="apidocCodeKeywordSpan">isIn
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isJqueryElement = function (o) {
-  return o &#x26;&#x26; v.isString(o.jquery);
+  return o &amp;&amp; v.isString(o.jquery);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   , validatorName
@@ -4030,22 +4023,22 @@ for (attr in constraints) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isNumber = function (value) {
-  return typeof value === &#x27;number&#x27; &#x26;&#x26; !isNaN(value);
+  return typeof value === 'number' &amp;&amp; !isNaN(value);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 isFunction: function(value) {
-  return typeof value === &#x27;function&#x27;;
+  return typeof value === 'function';
 },
 
 // A simple check to verify that the value is an integer. Uses `isNumber`
 // and a simple modulo check.
 isInteger: function(value) {
-  return v.<span class="apidocCodeKeywordSpan">isNumber</span>(value) &#x26;&#x26; value % 1 === 0;
+  return v.<span class="apidocCodeKeywordSpan">isNumber</span>(value) &amp;&amp; value % 1 === 0;
 },
 
 // Checks if the value is a boolean
 isBoolean: function(value) {
-  return typeof value === &#x27;boolean&#x27;;
+  return typeof value === 'boolean';
 },
 ...</pre></li>
     </ul>
@@ -4070,13 +4063,13 @@ if (!o.querySelectorAll || !o.querySelector) {
   return false;
 }
 
-if (v.<span class="apidocCodeKeywordSpan">isObject</span>(document) &#x26;&#x26; o === document) {
+if (v.<span class="apidocCodeKeywordSpan">isObject</span>(document) &amp;&amp; o === document) {
   return true;
 }
 
 // http://stackoverflow.com/a/384380/699304
 /* istanbul ignore else */
-if (typeof HTMLElement === &#x22;object&#x22;) {
+if (typeof HTMLElement === "object") {
   return o instanceof HTMLElement;
 ...</pre></li>
     </ul>
@@ -4091,7 +4084,7 @@ if (typeof HTMLElement === &#x22;object&#x22;) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isPromise = function (p) {
-  return !!p &#x26;&#x26; v.isFunction(p.then);
+  return !!p &amp;&amp; v.isFunction(p.then);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -4102,7 +4095,7 @@ if (typeof HTMLElement === &#x22;object&#x22;) {
   for (attr in results) {
     for (validator in results[attr]) {
       if (v.<span class="apidocCodeKeywordSpan">isPromise</span>(results[attr][validator])) {
-        throw new Error(&#x22;Use validate.async if you want support for promises&#x22;);
+        throw new Error("Use validate.async if you want support for promises");
       }
     }
   }
@@ -4121,17 +4114,17 @@ if (typeof HTMLElement === &#x22;object&#x22;) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">isString = function (value) {
-  return typeof value === &#x27;string&#x27;;
+  return typeof value === 'string';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 // Checks if the given argument is a promise. Anything with a `then`
 // function is considered a promise.
 isPromise: function(p) {
-  return !!p &#x26;&#x26; v.isFunction(p.then);
+  return !!p &amp;&amp; v.isFunction(p.then);
 },
 
 isJqueryElement: function(o) {
-  return o &#x26;&#x26; v.<span class="apidocCodeKeywordSpan">isString</span>(o.jquery);
+  return o &amp;&amp; v.<span class="apidocCodeKeywordSpan">isString</span>(o.jquery);
 },
 
 isDomElement: function(o) {
@@ -4154,14 +4147,14 @@ isDomElement: function(o) {
   if (v.isNumber(str)) {
     // If there are more than 2 decimals round it to two
     if ((str * 100) % 1 === 0) {
-      return &#x22;&#x22; + str;
+      return "" + str;
     } else {
       return parseFloat(Math.round(str * 100) / 100).toFixed(2);
     }
   }
 
   if (v.isArray(str)) {
-    return str.map(function(s) { return v.prettify(s); }).join(&#x22;, &#x22;);
+    return str.map(function(s) { return v.prettify(s); }).join(", ");
   }
 
   if (v.isObject(str)) {
@@ -4169,30 +4162,30 @@ isDomElement: function(o) {
   }
 
   // Ensure the string is actually a string
-  str = &#x22;&#x22; + str;
+  str = "" + str;
 
   return str
     // Splits keys separated by periods
-    .replace(/([^\s])\.([^\s])/g, &#x27;$1 $2&#x27;)
+    .replace(/([^\s])\.([^\s])/g, '$1 $2')
     // Removes backslashes
-    .replace(/\\+/g, &#x27;&#x27;)
+    .replace(/\\+/g, '')
     // Replaces - and - with space
-    .replace(/[_-]/g, &#x27; &#x27;)
+    .replace(/[_-]/g, ' ')
     // Splits camel cased words
     .replace(/([a-z])([A-Z])/g, function(m0, m1, m2) {
-      return &#x22;&#x22; + m1 + &#x22; &#x22; + m2.toLowerCase();
+      return "" + m1 + " " + m2.toLowerCase();
     })
     .toLowerCase();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    return &#x22;&#x22; + str;
+    return "" + str;
   } else {
     return parseFloat(Math.round(str * 100) / 100).toFixed(2);
   }
 }
 
 if (v.isArray(str)) {
-  return str.map(function(s) { return v.<span class="apidocCodeKeywordSpan">prettify</span>(s); }).join(&#x22;, &#x22;);
+  return str.map(function(s) { return v.<span class="apidocCodeKeywordSpan">prettify</span>(s); }).join(", ");
 }
 
 if (v.isObject(str)) {
@@ -4217,12 +4210,12 @@ if (v.isObject(str)) {
   errors = v.expandMultipleErrors(errors, options);
   errors = v.convertErrorMessages(errors, options);
 
-  var format = options.format || &#x22;grouped&#x22;;
+  var format = options.format || "grouped";
 
-  if (typeof v.formatters[format] === &#x27;function&#x27;) {
+  if (typeof v.formatters[format] === 'function') {
     errors = v.formatters[format](errors);
   } else {
-    throw new Error(v.format(&#x22;Unknown format %{format}&#x22;, options));
+    throw new Error(v.format("Unknown format %{format}", options));
   }
 
   return v.isEmpty(errors) ? undefined : errors;
@@ -4231,7 +4224,7 @@ if (v.isObject(str)) {
   for (attr in results) {
     for (validator in results[attr]) {
       if (v.isPromise(results[attr][validator])) {
-        throw new Error(&#x22;Use validate.async if you want support for promises&#x22;);
+        throw new Error("Use validate.async if you want support for promises");
       }
     }
   }
@@ -4241,7 +4234,7 @@ if (v.isObject(str)) {
 var v = validate;
 
 // Copies over attributes from one or more sources to a single destination.
-// Very much similar to underscore&#x27;s extend.
+// Very much similar to underscore's extend.
 // The first argument is the target object and the remaining arguments will be
 ...</pre></li>
     </ul>
@@ -4272,9 +4265,9 @@ errors = v.<span class="apidocCodeKeywordSpan">pruneEmptyErrors</span>(errors, o
 errors = v.expandMultipleErrors(errors, options);
 errors = v.convertErrorMessages(errors, options);
 
-var format = options.format || &#x22;grouped&#x22;;
+var format = options.format || "grouped";
 
-if (typeof v.formatters[format] === &#x27;function&#x27;) {
+if (typeof v.formatters[format] === 'function') {
   errors = v.formatters[format](errors);
 ...</pre></li>
     </ul>
@@ -4290,7 +4283,7 @@ if (typeof v.formatters[format] === &#x27;function&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">result = function (value) {
   var args = [].slice.call(arguments, 1);
-  if (typeof value === &#x27;function&#x27;) {
+  if (typeof value === 'function') {
     value = value.apply(null, args);
   }
   return value;
@@ -4310,7 +4303,7 @@ if (typeof v.formatters[format] === &#x27;function&#x27;) {
 validator = v.validators[validatorName];
 
 if (!validator) {
-  error = v.format(&#x22;Unknown validator %{name}&#x22;, {name: validatorName});
+  error = v.format("Unknown validator %{name}", {name: validatorName});
   throw new Error(error);
 ...</pre></li>
     </ul>
@@ -4352,7 +4345,7 @@ if (!validator) {
       validator = v.validators[validatorName];
 
       if (!validator) {
-        error = v.format(&#x22;Unknown validator %{name}&#x22;, {name: validatorName});
+        error = v.format("Unknown validator %{name}", {name: validatorName});
         throw new Error(error);
       }
 
@@ -4400,7 +4393,7 @@ var results = v.<span class="apidocCodeKeywordSpan">runValidations</span>(attrib
 for (attr in results) {
   for (validator in results[attr]) {
     if (v.isPromise(results[attr][validator])) {
-      throw new Error(&#x22;Use validate.async if you want support for promises&#x22;);
+      throw new Error("Use validate.async if you want support for promises");
 ...</pre></li>
     </ul>
 
@@ -4414,27 +4407,27 @@ for (attr in results) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">sanitizeFormValue = function (value, options) {
-  if (options.trim &#x26;&#x26; v.isString(value)) {
+  if (options.trim &amp;&amp; v.isString(value)) {
     value = value.trim();
   }
 
-  if (options.nullify !== false &#x26;&#x26; value === &#x22;&#x22;) {
+  if (options.nullify !== false &amp;&amp; value === "") {
     return null;
   }
   return value;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-      for (i = 0; i &#x3c; inputs.length; ++i) {
+      for (i = 0; i &lt; inputs.length; ++i) {
 input = inputs.item(i);
 
-if (v.isDefined(input.getAttribute(&#x22;data-ignored&#x22;))) {
+if (v.isDefined(input.getAttribute("data-ignored"))) {
   continue;
 }
 
 value = v.<span class="apidocCodeKeywordSpan">sanitizeFormValue</span>(input.value, options);
-if (input.type === &#x22;number&#x22;) {
+if (input.type === "number") {
   value = value ? +value : null;
-} else if (input.type === &#x22;checkbox&#x22;) {
+} else if (input.type === "checkbox") {
   if (input.attributes.value) {
     if (!input.checked) {
       value = values[input.name] || null;
@@ -4453,7 +4446,7 @@ if (input.type === &#x22;number&#x22;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">single = function (value, constraints, options) {
   options = v.extend({}, v.single.options, options, {
-    format: &#x22;flat&#x22;,
+    format: "flat",
     fullMessages: false
   });
   return v({single: value}, {single: constraints}, options);
@@ -4475,12 +4468,12 @@ if (input.type === &#x22;number&#x22;) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-    if (error[0] === &#x27;^&#x27;) {
+    if (error[0] === '^') {
       error = error.slice(1);
     } else if (options.fullMessages !== false) {
-      error = v.capitalize(v.prettify(errorInfo.attribute)) + &#x22; &#x22; + error;
+      error = v.capitalize(v.prettify(errorInfo.attribute)) + " " + error;
     }
-    error = error.replace(/\\\^/g, &#x22;^&#x22;);
+    error = error.replace(/\\\^/g, "^");
     error = v.format(error, {value: v.<span class="apidocCodeKeywordSpan">stringifyValue</span>(errorInfo.value)});
     ret.push(v.extend({}, errorInfo, {error: error}));
   });
@@ -4488,7 +4481,7 @@ if (input.type === &#x22;number&#x22;) {
 },
 
 // In:
-// [{attribute: &#x22;&#x3c;attributeName&#x3e;&#x22;, ...}]
+// [{attribute: "&lt;attributeName&gt;", ...}]
 ...</pre></li>
     </ul>
 
@@ -4540,7 +4533,7 @@ date: function(value, options) {
     <li>description and source-code<pre class="apidocCodePre">waitForResults = function (results) {
   // Create a sequence of all the results starting with a resolved promise.
   return results.reduce(function(memo, result) {
-    // If this result isn&#x27;t a promise skip it in the sequence.
+    // If this result isn't a promise skip it in the sequence.
     if (!v.isPromise(result.error)) {
       return memo;
     }
@@ -4581,8 +4574,8 @@ return new v.Promise(function(resolve, reject) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">warn = function (msg) {
-  if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.warn) {
-    console.warn(&#x22;[validate.js] &#x22; + msg);
+  if (typeof console !== "undefined" &amp;&amp; console.warn) {
+    console.warn("[validate.js] " + msg);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -4592,14 +4585,14 @@ return new v.Promise(function(resolve, reject) {
 },
 
 warn: function(msg) {
-  if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.warn) {
-    console.<span class="apidocCodeKeywordSpan">warn</span>(&#x22;[validate.js] &#x22; + msg);
+  if (typeof console !== "undefined" &amp;&amp; console.warn) {
+    console.<span class="apidocCodeKeywordSpan">warn</span>("[validate.js] " + msg);
   }
 },
 
 error: function(msg) {
-  if (typeof console !== &#x22;undefined&#x22; &#x26;&#x26; console.error) {
-    console.error(&#x22;[validate.js] &#x22; + msg);
+  if (typeof console !== "undefined" &amp;&amp; console.error) {
+    console.error("[validate.js] " + msg);
   }
 ...</pre></li>
     </ul>
@@ -4644,7 +4637,7 @@ error: function(msg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">datetime = function (value, options) {
   if (!v.isFunction(this.parse) || !v.isFunction(this.format)) {
-    throw new Error(&#x22;Both the parse and format functions needs to be set to use the datetime/date validator&#x22;);
+    throw new Error("Both the parse and format functions needs to be set to use the datetime/date validator");
   }
 
   // Empty values are fine
@@ -4663,19 +4656,19 @@ error: function(msg) {
 
   // 86400000 is the number of seconds in a day, this is used to remove
   // the time from the date
-  if (isNaN(value) || options.dateOnly &#x26;&#x26; value % 86400000 !== 0) {
+  if (isNaN(value) || options.dateOnly &amp;&amp; value % 86400000 !== 0) {
     err = options.notValid ||
       options.message ||
       this.notValid ||
-      &#x22;must be a valid date&#x22;;
+      "must be a valid date";
     return v.format(err, {value: arguments[0]});
   }
 
-  if (!isNaN(earliest) &#x26;&#x26; value &#x3c; earliest) {
+  if (!isNaN(earliest) &amp;&amp; value &lt; earliest) {
     err = options.tooEarly ||
       options.message ||
       this.tooEarly ||
-      &#x22;must be no earlier than %{date}&#x22;;
+      "must be no earlier than %{date}";
     err = v.format(err, {
       value: this.format(value, options),
       date: this.format(earliest, options)
@@ -4683,11 +4676,11 @@ error: function(msg) {
     errors.push(err);
   }
 
-  if (!isNaN(latest) &#x26;&#x26; value &#x3e; latest) {
+  if (!isNaN(latest) &amp;&amp; value &gt; latest) {
     err = options.tooLate ||
       options.message ||
       this.tooLate ||
-      &#x22;must be no later than %{date}&#x22;;
+      "must be no later than %{date}";
     err = v.format(err, {
       date: this.format(latest, options),
       value: this.format(value, options)
@@ -4713,7 +4706,7 @@ error: function(msg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">email = function (value, options) {
   options = v.extend({}, this.options, options);
-  var message = options.message || this.message || &#x22;is not a valid email&#x22;;
+  var message = options.message || this.message || "is not a valid email";
   // Empty values are fine
   if (!v.isDefined(value)) {
     return;
@@ -4748,10 +4741,10 @@ error: function(msg) {
   options = v.extend({}, this.options, options);
   var message = options.message ||
     this.message ||
-    &#x22;is not equal to %{attribute}&#x22;;
+    "is not equal to %{attribute}";
 
   if (v.isEmpty(options.attribute) || !v.isString(options.attribute)) {
-    throw new Error(&#x22;The attribute must be a non empty string&#x22;);
+    throw new Error("The attribute must be a non empty string");
   }
 
   var otherValue = v.getDeepObjectValue(attributes, options.attribute)
@@ -4787,7 +4780,7 @@ error: function(msg) {
   if (!v.contains(options.within, value)) {
     return;
   }
-  var message = options.message || this.message || &#x22;^%{value} is restricted&#x22;;
+  var message = options.message || this.message || "^%{value} is restricted";
   return v.format(message, {value: value});
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4809,7 +4802,7 @@ error: function(msg) {
 
   options = v.extend({}, this.options, options);
 
-  var message = options.message || this.message || &#x22;is invalid&#x22;
+  var message = options.message || this.message || "is invalid"
     , pattern = options.pattern
     , match;
 
@@ -4837,9 +4830,9 @@ version: {
   patch: 1,
   metadata: null,
   toString: function() {
-    var version = v.<span class="apidocCodeKeywordSpan">format</span>(&#x22;%{major}.%{minor}.%{patch}&#x22;, v.version);
+    var version = v.<span class="apidocCodeKeywordSpan">format</span>("%{major}.%{minor}.%{patch}", v.version);
     if (!v.isEmpty(v.version.metadata)) {
-      version += &#x22;+&#x22; + v.version.metadata;
+      version += "+" + v.version.metadata;
     }
     return version;
   }
@@ -4870,7 +4863,7 @@ version: {
   }
   var message = options.message ||
     this.message ||
-    &#x22;^%{value} is not included in the list&#x22;;
+    "^%{value} is not included in the list";
   return v.format(message, {value: value});
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4903,33 +4896,33 @@ version: {
   value = tokenizer(value);
   var length = value.length;
   if(!v.isNumber(length)) {
-    v.error(v.format(&#x22;Attribute %{attr} has a non numeric value for `length`&#x22;, {attr: attribute}));
-    return options.message || this.notValid || &#x22;has an incorrect length&#x22;;
+    v.error(v.format("Attribute %{attr} has a non numeric value for `length`", {attr: attribute}));
+    return options.message || this.notValid || "has an incorrect length";
   }
 
   // Is checks
-  if (v.isNumber(is) &#x26;&#x26; length !== is) {
+  if (v.isNumber(is) &amp;&amp; length !== is) {
     err = options.wrongLength ||
       this.wrongLength ||
-      &#x22;is the wrong length (should be %{count} characters)&#x22;;
+      "is the wrong length (should be %{count} characters)";
     errors.push(v.format(err, {count: is}));
   }
 
-  if (v.isNumber(minimum) &#x26;&#x26; length &#x3c; minimum) {
+  if (v.isNumber(minimum) &amp;&amp; length &lt; minimum) {
     err = options.tooShort ||
       this.tooShort ||
-      &#x22;is too short (minimum is %{count} characters)&#x22;;
+      "is too short (minimum is %{count} characters)";
     errors.push(v.format(err, {count: minimum}));
   }
 
-  if (v.isNumber(maximum) &#x26;&#x26; length &#x3e; maximum) {
+  if (v.isNumber(maximum) &amp;&amp; length &gt; maximum) {
     err = options.tooLong ||
       this.tooLong ||
-      &#x22;is too long (maximum is %{count} characters)&#x22;;
+      "is too long (maximum is %{count} characters)";
     errors.push(v.format(err, {count: maximum}));
   }
 
-  if (errors.length &#x3e; 0) {
+  if (errors.length &gt; 0) {
     return options.message || errors;
   }
 }</pre></li>
@@ -4957,66 +4950,66 @@ version: {
     , name
     , count
     , checks = {
-        greaterThan:          function(v, c) { return v &#x3e; c; },
-        greaterThanOrEqualTo: function(v, c) { return v &#x3e;= c; },
+        greaterThan:          function(v, c) { return v &gt; c; },
+        greaterThanOrEqualTo: function(v, c) { return v &gt;= c; },
         equalTo:              function(v, c) { return v === c; },
-        lessThan:             function(v, c) { return v &#x3c; c; },
-        lessThanOrEqualTo:    function(v, c) { return v &#x3c;= c; },
+        lessThan:             function(v, c) { return v &lt; c; },
+        lessThanOrEqualTo:    function(v, c) { return v &lt;= c; },
         divisibleBy:          function(v, c) { return v % c === 0; }
       };
 
   // Strict will check that it is a valid looking number
-  if (v.isString(value) &#x26;&#x26; options.strict) {
-    var pattern = &#x22;^(0|[1-9]\\d*)&#x22;;
+  if (v.isString(value) &amp;&amp; options.strict) {
+    var pattern = "^(0|[1-9]\\d*)";
     if (!options.onlyInteger) {
-      pattern += &#x22;(\\.\\d+)?&#x22;;
+      pattern += "(\\.\\d+)?";
     }
-    pattern += &#x22;$&#x22;;
+    pattern += "$";
 
     if (!(new RegExp(pattern).test(value))) {
       return options.message ||
         options.notValid ||
         this.notValid ||
         this.message ||
-        &#x22;must be a valid number&#x22;;
+        "must be a valid number";
     }
   }
 
-  // Coerce the value to a number unless we&#x27;re being strict.
-  if (options.noStrings !== true &#x26;&#x26; v.isString(value) &#x26;&#x26; !v.isEmpty(value)) {
+  // Coerce the value to a number unless we're being strict.
+  if (options.noStrings !== true &amp;&amp; v.isString(value) &amp;&amp; !v.isEmpty(value)) {
     value = +value;
   }
 
-  // If it&#x27;s not a number we shouldn&#x27;t continue since it will compare it.
+  // If it's not a number we shouldn't continue since it will compare it.
   if (!v.isNumber(value)) {
     return options.message ||
       options.notValid ||
       this.notValid ||
       this.message ||
-      &#x22;is not a number&#x22;;
+      "is not a number";
   }
 
-  // Same logic as above, sort of. Don&#x27;t bother with comparisons if this
-  // doesn&#x27;t pass.
-  if (options.onlyInteger &#x26;&#x26; !v.isInteger(value)) {
+  // Same logic as above, sort of. Don't bother with comparisons if this
+  // doesn't pass.
+  if (options.onlyInteger &amp;&amp; !v.isInteger(value)) {
     return options.message ||
       options.notInteger ||
       this.notInteger ||
       this.message ||
-      &#x22;must be an integer&#x22;;
+      "must be an integer";
   }
 
   for (name in checks) {
     count = options[name];
-    if (v.isNumber(count) &#x26;&#x26; !checks[name](value, count)) {
+    if (v.isNumber(count) &amp;&amp; !checks[name](value, count)) {
       // This picks the default message if specified
       // For example the greaterThan check uses the message from
-      // this.notGreaterThan so we capitalize the name and prepend &#x22;not&#x22;
-      var key = &#x22;not&#x22; + v.capitalize(name);
+      // this.notGreaterThan so we capitalize the name and prepend "not"
+      var key = "not" + v.capitalize(name);
       var msg = options[key] ||
         this[key] ||
         this.message ||
-        &#x22;must be %{type} %{count}&#x22;;
+        "must be %{type} %{count}";
 
       errors.push(v.format(msg, {
         count: count,
@@ -5025,17 +5018,17 @@ version: {
     }
   }
 
-  if (options.odd &#x26;&#x26; value % 2 !== 1) {
+  if (options.odd &amp;&amp; value % 2 !== 1) {
     errors.push(options.notOdd ||
         this.notOdd ||
         this.message ||
-        &#x22;must be odd&#x22;);
+        "must be odd");
   }
-  if (options.even &#x26;&#x26; value % 2 !== 0) {
+  if (options.even &amp;&amp; value % 2 !== 0) {
     errors.push(options.notEven ||
         this.notEven ||
         this.message ||
-        &#x22;must be even&#x22;);
+        "must be even");
   }
 
   if (errors.length) {
@@ -5057,7 +5050,7 @@ version: {
     <li>description and source-code<pre class="apidocCodePre">presence = function (value, options) {
   options = v.extend({}, this.options, options);
   if (options.allowEmpty ? !v.isDefined(value) : v.isEmpty(value)) {
-    return options.message || this.message || &#x22;can&#x27;t be blank&#x22;;
+    return options.message || this.message || "can't be blank";
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -5079,8 +5072,8 @@ version: {
 
   options = v.extend({}, this.options, options);
 
-  var message = options.message || this.message || &#x22;is not a valid url&#x22;
-    , schemes = options.schemes || this.schemes || [&#x27;http&#x27;, &#x27;https&#x27;]
+  var message = options.message || this.message || "is not a valid url"
+    , schemes = options.schemes || this.schemes || ['http', 'https']
     , allowLocal = options.allowLocal || this.allowLocal || false;
 
   if (!v.isString(value)) {
@@ -5089,49 +5082,49 @@ version: {
 
   // https://gist.github.com/dperini/729294
   var regex =
-    &#x22;^&#x22; +
+    "^" +
     // protocol identifier
-    &#x22;(?:(?:&#x22; + schemes.join(&#x22;|&#x22;) + &#x22;)://)&#x22; +
+    "(?:(?:" + schemes.join("|") + ")://)" +
     // user:pass authentication
-    &#x22;(?:\\S+(?::\\S*)?@)?&#x22; +
-    &#x22;(?:&#x22;;
+    "(?:\\S+(?::\\S*)?@)?" +
+    "(?:";
 
-  var tld = &#x22;(?:\\.(?:[a-z\\u00a1-\\uffff]{2,}))&#x22;;
+  var tld = "(?:\\.(?:[a-z\\u00a1-\\uffff]{2,}))";
 
   if (allowLocal) {
-    tld += &#x22;?&#x22;;
+    tld += "?";
   } else {
     regex +=
       // IP address exclusion
-      // private &#x26; local networks
-      &#x22;(?!(?:10|127)(?:\\.\\d{1,3}){3})&#x22; +
-      &#x22;(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})&#x22; +
-      &#x22;(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})&#x22;;
+      // private &amp; local networks
+      "(?!(?:10|127)(?:\\.\\d{1,3}){3})" +
+      "(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})" +
+      "(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})";
   }
 
   regex +=
       // IP address dotted notation octets
       // excludes loopback network 0.0.0.0
-      // excludes reserved space &#x3e;= 224.0.0.0
-      // excludes network &#x26; broacast addresses
-      // (first &#x26; last IP address of each class)
-      &#x22;(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])&#x22; +
-      &#x22;(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}&#x22; +
-      &#x22;(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))&#x22; +
-    &#x22;|&#x22; +
+      // excludes reserved space &gt;= 224.0.0.0
+      // excludes network &amp; broacast addresses
+      // (first &amp; last IP address of each class)
+      "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])" +
+      "(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}" +
+      "(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))" +
+    "|" +
       // host name
-      &#x22;(?:(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)&#x22; +
+      "(?:(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)" +
       // domain name
-      &#x22;(?:\\.(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)*&#x22; +
+      "(?:\\.(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)*" +
       tld +
-    &#x22;)&#x22; +
+    ")" +
     // port number
-    &#x22;(?::\\d{2,5})?&#x22; +
+    "(?::\\d{2,5})?" +
     // resource path
-    &#x22;(?:[/?#]\\S*)?&#x22; +
-  &#x22;$&#x22;;
+    "(?:[/?#]\\S*)?" +
+  "$";
 
-  var PATTERN = new RegExp(regex, &#x27;i&#x27;);
+  var PATTERN = new RegExp(regex, 'i');
   if (!PATTERN.exec(value)) {
     return message;
   }
@@ -5154,9 +5147,9 @@ version: {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">toString = function () {
-  var version = v.format(&#x22;%{major}.%{minor}.%{patch}&#x22;, v.version);
+  var version = v.format("%{major}.%{minor}.%{patch}", v.version);
   if (!v.isEmpty(v.version.metadata)) {
-    version += &#x22;+&#x22; + v.version.metadata;
+    version += "+" + v.version.metadata;
   }
   return version;
 }</pre></li>
@@ -5164,7 +5157,7 @@ version: {
 }
 
 if (v.isArray(str)) {
-  return str.map(function(s) { return v.prettify(s); }).join(&#x22;, &#x22;);
+  return str.map(function(s) { return v.prettify(s); }).join(", ");
 }
 
 if (v.isObject(str)) {
@@ -5172,7 +5165,7 @@ if (v.isObject(str)) {
 }
 
 // Ensure the string is actually a string
-str = &#x22;&#x22; + str;
+str = "" + str;
 
 return str
   // Splits keys separated by periods
@@ -5196,3 +5189,4 @@ return str
     ]
 </div>
 </div>
+</body></html>
